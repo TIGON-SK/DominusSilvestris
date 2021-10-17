@@ -10,20 +10,18 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                 $textAbout = $frontendParts['textAbout'];
                 $image_name = $frontendParts['image_name'];
                 ?>
-                <div class="ofirme-img">
+                <div>
                     <a href="#">
-                        <img class="forester" src="../assets/img/forester.jpg" alt="lesnik obrazok">
+                        <img src="../assets/img/forester.jpg" alt="lesnik obrazok">
                     </a>
 
                 </div>
                 <form action="" method="post" enctype="multipart/form-data">
-                <div class="ofirme-text">
-                    <input type="file" class=" mt-1 p-1 form-control-file" name="item-img">
+                <div>
+                    <input type="file" name="item-img">
 
                     <textarea name="textareaAbout" cols="30" rows="10"><?php echo($textAbout); ?></textarea>
-                    <input style="color: white !important;"
-                           class="p-1 mt-2 ml-1 btn btn-primary"
-                           type="submit"
+                    <input type="submit"
                            name="btn-insert-into-db"
                            value="Upraviť">
                 </div>

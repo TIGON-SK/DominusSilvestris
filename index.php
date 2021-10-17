@@ -1,6 +1,5 @@
 <?php include_once "_partials/header.php"; ?>
 
-
 <!--Slideshow-->
 <div class="imgs">
 

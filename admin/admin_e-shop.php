@@ -4,12 +4,11 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 
     <div class="container obchod-container">
         <div class="w-100">
-            <div class="add-item">
-                <a style="color: white !important;" href="admin_add-item.php" class="btn btn-primary">Pridať produkt <i
-                            class="bi bi-plus-circle"></i></a>
+            <div>
+                <a href="admin_add-item.php" >Pridať produkt <i></i></a>
             </div>
 
-            <div class="sessions m-2">
+            <div>
                 <?php
                 if (isset($_SESSION['remove-img'])) {
                     echo $_SESSION['remove-img'];
@@ -46,15 +45,15 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
             while ($row = $query->fetch()) {
                 $idOfItem = $row['id'];
                 ?>
-                <div class="store-item">
+                <div>
 
-                    <img style="width:100px;" class="store-item-img" src="admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
-                    <h3 class="name-of-item fontdark"><?php echo $row['title']; ?></h3>
-                    <p class="fontdark"><?php echo $row['description']; ?></p>
-                    <h4 class="float-left fontdark">Cena: <?php echo $row['price']; ?>$</h4>
-                    <div class="manage-item">
-                        <a href="admin_edit-item.php?id=<?php echo($idOfItem);?>" ><i class="bi bi-pencil"></i></a>
-                        <a href="admin_delete-item.php?id=<?php echo($idOfItem);?>"><i class="bi bi-trash"></i></a>
+                    <img src="admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
+                    <h3 ><?php echo $row['title']; ?></h3>
+                    <p><?php echo $row['description']; ?></p>
+                    <h4>Cena: <?php echo $row['price']; ?>$</h4>
+                    <div >
+                        <a href="admin_edit-item.php?id=<?php echo($idOfItem);?>" ><i></i></a>
+                        <a href="admin_delete-item.php?id=<?php echo($idOfItem);?>"><i></i></a>
                     </div>
                 </div>
                 <?php
@@ -62,9 +61,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
         } else {
             //no items
             ?>
-            <div class="store-item">
+            <div>
 
-                <h3 class="name-of-item fontdark">Neboli nájdené žiadne produkty.</h3>
+                <h3>Neboli nájdené žiadne produkty.</h3>
             </div>
             <?php
         }

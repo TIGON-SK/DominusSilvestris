@@ -2,9 +2,9 @@
 </main>
 <footer>
     <!-- Copyright -->
-    <div class="foot fontdark text-center p-3">
+    <div>
         ©
-        <strong><a class="fontdark" href="#">Dominus&nbsp;Silvestris</a></strong>
+        <strong><a href="#">Dominus&nbsp;Silvestris</a></strong>
     </div>
     <!-- Copyright -->
 </footer>

@@ -4,7 +4,7 @@ use Cassandra\Date;
 
 include_once "_partials/header.php"; ?>
 
-    <div class="container">
+    <div>
         <?php
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
     $customer_address = $_POST['customer_address'];
     $qty = $_POST['qty'];
     if ($qty<=0){
-        $_SESSION['order-item'] = "<div class='alert alert-danger'>Objednavka bola neúspešná (zle zadane mnozstvo)!</div>";
+        $_SESSION['order-item'] = "<div>Objednavka bola neúspešná (zle zadane mnozstvo)!</div>";
         header("Location:e-shop.php");
         die();
     }
@@ -77,11 +77,11 @@ if (isset($_POST['submit'])) {
     $query->bindParam("customer_address", $customer_address, PDO::PARAM_STR);
     $result = $query->execute();
     if ($result) {
-        $_SESSION['order-item'] = "<div class='alert alert-success'>Objednavka bola uspešne zaevidovaná.</div>";
+        $_SESSION['order-item'] = "<div>Objednavka bola uspešne zaevidovaná.</div>";
         header("Location:e-shop.php");
         die();
     } else {
-        $_SESSION['order-item'] = "<div class='alert alert-danger'>Objednavka bola neúspešná!</div>";
+        $_SESSION['order-item'] = "<div>Objednavka bola neúspešná!</div>";
         header("Location:e-shop.php");
         die();
     }

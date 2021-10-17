@@ -13,7 +13,6 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/3c96e9cf2a.js" crossorigin="anonymous"></script>
 
@@ -26,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-light light-blue lighten-1 ">
         <!--Logo – aktívny odkaz, ktorý smeruje na úvodnú stránku-->
         <a class="navbar-brand" href="./index.php">
-            <img style="width: 130px;" src="./assets/img/logo-dark2.png" alt="logo firmy">
+            <img src="./assets/img/logo-dark2.png" alt="logo firmy">
         </a>
         <!--Hamburger-->
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
@@ -57,4 +56,4 @@
         </div>
     </nav>
 </header>
-<main class="main-home">
+<main>

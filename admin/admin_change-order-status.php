@@ -1,7 +1,7 @@
 <?php include_once "_admin-partials/admin_header.php";
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
     ?>
-    <div class="container">
+    <div>
         <?php
     if (isset($_POST['submit'])){
         $status_of_order = $_POST['orderRadio'];
@@ -22,12 +22,12 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
         $result = $query->execute();
 
         if ($result){
-            $_SESSION['change_of_status_success'] = "<div class='alert alert-success'>Zmena bola úspešná.</div>";
+            $_SESSION['change_of_status_success'] = "<div>Zmena bola úspešná.</div>";
            header("Location:admin_manage-orders.php");
            die();
         }
         else{
-            $_SESSION['change_of_status_failed'] = "<div class='alert alert-danger'>Zmena bola neúspešná!</div>";
+            $_SESSION['change_of_status_failed'] = "<div>Zmena bola neúspešná!</div>";
             header("Location:admin_manage-orders.php");
             die();
         }

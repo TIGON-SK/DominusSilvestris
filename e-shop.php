@@ -7,7 +7,7 @@
         }
         ?>
     </div>
-<div class="container obchod-container">
+<div>
 
     <?php
     /** @var str $conn */
@@ -19,20 +19,20 @@
     if ($count > 0) {
         while ($row = $query->fetch()) {
             ?>
-            <div class="store-item">
-                <img class="store-item-img" src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
-                <h3 class="name-of-item fontdark"><?php echo $row['title']; ?></h3>
-                <p class="fontdark"><?php echo $row['description']; ?></p>
-                <h4 class="float-left fontdark">Cena: <?php echo $row['price']; ?>$</h4>
-                <a class="btn btn-success float-right" href="order-item.php?id=<?php echo($row['id']);?>">Objednať</a>
+            <div>
+                <img src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
+                <h3><?php echo $row['title']; ?></h3>
+                <p><?php echo $row['description']; ?></p>
+                <h4>Cena: <?php echo $row['price']; ?>$</h4>
+                <a href="order-item.php?id=<?php echo($row['id']);?>">Objednať</a>
             </div>
     <?php
         }
     } else {
         //no items
         ?>
-        <div class="store-item">
-                <h3 class="name-of-item fontdark">Neboli nájdené žiadne produkty.</h3>
+        <div>
+                <h3>Neboli nájdené žiadne produkty.</h3>
             </div>
     <?php
     }

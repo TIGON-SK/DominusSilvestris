@@ -8,7 +8,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $description = $_POST['description'];
             $price = $_POST['price'];
             if ($price<=0){
-                $_SESSION['item-added'] = "<div class='alert alert-danger'>Prvok nebol upravený, zle zadaná cena!</div>";
+                $_SESSION['item-added'] = "<div>Prvok nebol upravený, zle zadaná cena!</div>";
                 header("Location:admin_e-shop.php");
                 die();
             }
@@ -20,7 +20,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
 
             if ($img_size != 0 && $error_value == 0) {
                 if ($img_size > 125000) {
-                    $_SESSION['img-upload'] = "<div class='alert alert-danger'>Súbor je príliš veľký!</div>";
+                    $_SESSION['img-upload'] = "<div>Súbor je príliš veľký!</div>";
                     header("Location:admin_add-item.php");
                     die();
                 } else {
@@ -49,27 +49,27 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                                 $remove = unlink($path);
                                 if ($imgName!=""){
                                     if ($remove == false) {
-                                        $_SESSION['item-edited'] = "<div class='alert alert-danger'>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
+                                        $_SESSION['item-edited'] = "<div>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
                                     } else {
-                                        $_SESSION['item-edited'] = "<div class='alert alert-success'>Produkt bol úspešne vymazaný.</div>";
+                                        $_SESSION['item-edited'] = "<div>Produkt bol úspešne vymazaný.</div>";
                                     }
                                 }
-                                $_SESSION['item-added'] = "<div class='alert alert-success'>Prvok bol úspešne pridaný.</div>";
+                                $_SESSION['item-added'] = "<div>Prvok bol úspešne pridaný.</div>";
                                 header("Location:admin_e-shop.php");
                                 die();
                             } else {
-                                $_SESSION['item-added'] = "<div class='alert alert-danger'>Prvok nebol pridaný!</div>";
+                                $_SESSION['item-added'] = "<div>Prvok nebol pridaný!</div>";
                                 header("Location:admin_e-shop.php");
                                 die();
                             }
 
                         } else {
-                            $_SESSION['img-upload'] = "<div class='alert alert-danger'>Nastala chyba pri nahrávaní súboru, skúste to znova!</div>";
+                            $_SESSION['img-upload'] = "<div>Nastala chyba pri nahrávaní súboru, skúste to znova!</div>";
                             header("Location:admin_add-item.php");
                             die();
                         }
                     } else {
-                        $_SESSION['img-upload'] = "<div class='alert alert-danger'>Nemôžete nahrať tento typ súboru!</div>";
+                        $_SESSION['img-upload'] = "<div>Nemôžete nahrať tento typ súboru!</div>";
                         header("Location:admin_add-item.php");
                         die();
                     }
@@ -90,28 +90,28 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                     $remove = unlink($path);
                     if ($imgName!=""){
                         if ($remove == false) {
-                            $_SESSION['item-edited'] = "<div class='alert alert-danger'>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
+                            $_SESSION['item-edited'] = "<div>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
                         } else {
-                            $_SESSION['item-edited'] = "<div class='alert alert-success'>Produkt bol úspešne vymazaný.</div>";
+                            $_SESSION['item-edited'] = "<div>Produkt bol úspešne vymazaný.</div>";
                         }
                     }
 
-                    $_SESSION['item-added'] = "<div class='alert alert-success'>Prvok bol úspešne zmenený.</div>";
+                    $_SESSION['item-added'] = "<div>Prvok bol úspešne zmenený.</div>";
                     header("Location:admin_e-shop.php");
                     die();
                 } else {
-                    $_SESSION['item-added'] = "<div class='alert alert-danger'>Prvok nebol zmenený!</div>";
+                    $_SESSION['item-added'] = "<div>Prvok nebol zmenený!</div>";
                     header("Location:admin_e-shop.php");
                     die();
                 }
             }else {
-                $_SESSION['img-upload'] = "<div class='alert alert-danger'>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
+                $_SESSION['img-upload'] = "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
                 header("Location:admin_add-item.php");
                 die();
             }
         }
     } else {
-        $_SESSION['img-upload'] = "<div class='alert alert-danger'>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
+        $_SESSION['img-upload'] = "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
         header("Location:admin_add-item.php");
         die();
     }

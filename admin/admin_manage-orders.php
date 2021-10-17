@@ -1,9 +1,9 @@
 <?php include_once "_admin-partials/admin_header.php";
 //status: objednane, naceste, dorucene, vymazat
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
-    <div class="flex-column container ofirme">
-        <div class="flex-row">
-            <div class="sessions m-2">
+    <div>
+        <div>
+            <div>
                 <?php if (isset($_SESSION['change_of_status_failed'])) {
                     echo $_SESSION['change_of_status_failed'];
                     unset($_SESSION['change_of_status_failed']);
@@ -13,7 +13,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                     unset($_SESSION['change_of_status_success']);
                 } ?>
             </div>
-            <div class="alert alert-info m-2 w-50">
+            <div>
                 Vysvetlivky: <br>
                 Objednané - <i class="bi bi-bag-check"></i>&nbsp;&nbsp;
                 Je to na ceste - <i class="bi bi-truck"></i>&nbsp;&nbsp;
@@ -21,9 +21,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                 Vymazať - <i class="bi bi-trash"></i>
             </div>
         </div>
-        <table class="table">
+        <table>
             <thead>
-            <tr class="table-primary">
+            <tr>
                 <th>S.N.</th>
                 <th>Názov produktu</th>
                 <th>Cena</th>
@@ -34,7 +34,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                 <th>Meno zákazníka</th>
                 <th>Email zákazníka</th>
                 <th>Adresa zákazníka</th>
-                <th class="infoOnHover">Zmeniť stav <i class="bi bi-info-circle"></i></th>
+                <th>Zmeniť stav <i class="bi bi-info-circle"></i></th>
             </tr>
             </thead>
 
@@ -49,7 +49,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                 while ($order = $query->fetch()) {
                     $_SESSION['order-id'] = $order['id'];
                     ?>
-                    <tr class="table-active">
+                    <tr>
                         <th><?php echo $sn++; ?>.</th>
                         <th><?php echo $order['item_name']; ?></th>
                         <th><?php echo $order['price']; ?>€</th>
