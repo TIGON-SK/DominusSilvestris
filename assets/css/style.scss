@@ -1,0 +1,19 @@
+@import "_variables";
+
+body {
+  font-family: $fontFamily;
+
+  header {
+    height: 100px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+@import "_index";
+@import "_about";
+@import "_manageOrder";
+@import "_eshop";
+@import "_login";
+@import "_logout";

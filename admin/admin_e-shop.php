@@ -2,8 +2,8 @@
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 
 
-    <div class="container obchod-container">
-        <div class="w-100">
+    <div>
+        <div>
             <div>
                 <a href="admin_add-item.php" >Pridať produkt <i></i></a>
             </div>

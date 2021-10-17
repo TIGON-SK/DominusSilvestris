@@ -30,7 +30,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                         <input type="hidden" name="id" value="<?php echo $itemInfo['id'];?>">
                         <input type="hidden" name="old_img" value="<?php echo $itemInfo['image_name'];?>">
 
-                        <input style="color: white !important;" type="submit"
+                        <input type="submit"
                                name="btn-edit">
                     </form>
                 </div>

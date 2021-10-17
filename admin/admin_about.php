@@ -1,6 +1,6 @@
 <?php include_once "_admin-partials/admin_header.php";
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
-    <div class="container ofirme">
+    <div>
         <?php
         /** @var str $conn */
         $query = $conn->prepare("SELECT * FROM tbl_frontend");

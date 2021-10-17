@@ -15,7 +15,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
         <input type="number" step="any"  pattern="\d*" maxlength="4" name="price" required placeholder="cena...">
         <label for="">Obrázok: </label>
         <input type="file" name="item-img">
-        <input style="color: white !important;" type="submit" name="btn-insert-into-db" value="Pridať položku">
+        <input type="submit" name="btn-insert-into-db" value="Pridať položku">
     </form>
 </div>
 

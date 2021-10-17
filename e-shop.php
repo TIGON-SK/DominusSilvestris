@@ -1,5 +1,5 @@
 <?php include_once "_partials/header.php"; ?>
-    <div style="padding-top: 100px;" class="sessions m-2">
+    <div>
         <?php
         if (isset($_SESSION['order-item'])) {
             echo $_SESSION['order-item'];

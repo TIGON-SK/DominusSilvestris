@@ -1,19 +1,19 @@
 <?php include_once "_partials/header.php"; ?>
 
 <!--Slideshow-->
-<div class="imgs">
+<div>
 
-    <div class="img-home" style="background: url('./assets/img/bg2.jpg');"></div><!--
-    <div class="img-home" style="background: url('./assets/img/bg3.jpg');"></div>
-    <div class="img-home" style="background: url('./assets/img/bg4.jpg');"></div>
-    <div class="img-home" style="background: url('./assets/img/bg5.jpg');"></div>
-    <div class="img-home" style="background: url('./assets/img/bg6.jpg');"></div>
-    <div class="img-home" style="background: url('./assets/img/bg1.jpg');"></div>
-    -->
+    <!-- <div class="img-home" style="background: url('./assets/img/bg2.jpg');"></div>
+     <div class="img-home" style="background: url('./assets/img/bg3.jpg');"></div>
+     <div class="img-home" style="background: url('./assets/img/bg4.jpg');"></div>
+     <div class="img-home" style="background: url('./assets/img/bg5.jpg');"></div>
+     <div class="img-home" style="background: url('./assets/img/bg6.jpg');"></div>
+     <div class="img-home" style="background: url('./assets/img/bg1.jpg');"></div>
+     -->
 </div>
-<div id="overlay"></div>
+<div></div>
 
-    <div class="container home-container">
+    <div>
         <p>Cupcake ipsum dolor sit amet cupcake. Icing gingerbread muffin pastry bear claw bear claw shortbread.
             Liquorice sugar plum cookie tiramisu chocolate.
             Gummies gummi bears halvah oat cake powder I love bear claw I love jelly beans.
