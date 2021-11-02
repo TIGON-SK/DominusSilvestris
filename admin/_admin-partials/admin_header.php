@@ -27,7 +27,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 <body>
 <!-- navigation -->
 <header>
-    <nav class="navbar navbar-expand-md navbar-light light-blue lighten-1 ">
+    <nav class="navbar navbar-expand-xl navbar-light light-blue lighten-1 ">
         <!--Logo – aktívny odkaz, ktorý smeruje na úvodnú stránku-->
         <a class="navbar-brand" href="./index.php">
             <img src="../assets/img/logo-dark2.png" alt="logo firmy">
@@ -45,20 +45,20 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 
             <ul class="navbar-nav ml-auto">
                 <!--Polozky v menu-->
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="admin_index.php">Domov</a>
+                <li>
+                    <a href="admin_index.php">Domov</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="admin_about.php">O firme</a>
+                <li>
+                    <a href="admin_about.php">O firme</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="admin_manage-orders.php">Objednávky</a>
+                <li>
+                    <a href="admin_manage-orders.php">Objednávky</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="admin_e-shop.php">Obchod</a>
+                <li>
+                    <a href="admin_e-shop.php">Obchod</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="../logout.php">Odhlásenie <i class="fas fa-sign-out-alt"></i></a>
+                <li>
+                    <a href="../logout.php">Odhlásenie <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
         </div>

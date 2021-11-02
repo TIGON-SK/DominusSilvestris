@@ -1,19 +1,70 @@
 @import "_variables";
-
+*{
+  box-sizing: border-box;
+}
 body {
+  a{
+    color: $textColor;
+    text-decoration: none;
+    &:hover{
+      color: $textColor;
+      text-decoration: none;
+    }
+  }
+  margin:0 auto;
+  width: 80%;
   font-family: $fontFamily;
-
+  color: $textColor;
   header {
+    font-size: 20px;
     height: 100px;
+    nav{
+      z-index: 100;
+      background-color: white;
+      //line-height: 40px;
+    }
+    ul{
+      li{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  main{
+    margin-top: 30px;
   }
 
   footer {
+    font-size: 25px;
     text-align: center;
+    padding: 30px 0px 30px 0px;
   }
 }
+
 @import "_index";
 @import "_about";
 @import "_manageOrder";
 @import "_eshop";
 @import "_login";
 @import "_logout";
+
+//MEDIA QUERY
+@media screen and (max-width: 1000px){
+  nav{
+    background-color: white;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .about-wrapper{
+    flex-direction: column;
+    .about-picture-div{
+      padding-bottom: 50px;
+    }
+  }
+  body main{
+    margin-top: 60px !important;
+  }
+}

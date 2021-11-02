@@ -27,7 +27,7 @@
 <body>
 <!-- navigation -->
 <header>
-    <nav class="navbar navbar-expand-md navbar-light light-blue lighten-1 ">
+    <nav class="navbar navbar-expand-lg navbar-light light-blue lighten-1 ">
         <!--Logo – aktívny odkaz, ktorý smeruje na úvodnú stránku-->
         <a class="navbar-brand" href="./index.php">
             <img src="./assets/img/logo-dark2.png" alt="logo firmy">
@@ -45,17 +45,17 @@
 
             <ul class="navbar-nav ml-auto">
                 <!--Polozky v menu-->
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="./index.php">Domov</a>
+                <li>
+                    <a href="./index.php">Domov</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="./about.php">O firme</a>
+                <li>
+                    <a href="./about.php">O firme</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="./e-shop.php">Obchod</a>
+                <li>
+                    <a href="./e-shop.php">Obchod</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link nav-li" href="./login.php">Prihlásiť sa <i class="fas fa-sign-in-alt"></i></a>
+                <li>
+                    <a href="./login.php">Prihlásiť sa <i class="fas fa-sign-in-alt"></i></a>
                 </li>
             </ul>
         </div>

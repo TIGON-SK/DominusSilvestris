@@ -1,9 +1,14 @@
-//show password
-function myFunction() {
-	var x = document.getElementById("myInput");
-	if (x.type === "password") {
-		x.type = "text";
-	} else {
-		x.type = "password";
-	}
+window.onload = function () {
+    let carouselContainer = document.getElementById("carousel-container")
+    let carouselImg = document.getElementById("first");
+    let height = carouselImg.clientHeight;
+    console.log(height);
+    carouselContainer.style.height = (height) + "px";
+}
+window.onresize = function () {
+    let carouselContainer = document.getElementById("carousel-container")
+    let carouselImg = document.getElementById("first");
+    let height = carouselImg.clientHeight;
+    console.log(height);
+    carouselContainer.style.height = (height) + "px";
 }

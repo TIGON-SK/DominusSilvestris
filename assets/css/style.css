@@ -1,17 +1,113 @@
-/* Error: Can't find stylesheet to import.
- *    ,
- * 14 | @import "_index";
- *    |         ^^^^^^^^
- *    '
- *   style.scss 14:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    \2577 \a 14 \2502  @import \"_index\";\d\a    \2502          ^^^^^^^^\a    \2575 \a   style.scss 14:9  root stylesheet";
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0 auto;
+  width: 80%;
+  font-family: "Montserrat", sans-serif;
+  color: #484848;
+}
+body a {
+  color: #484848;
+  text-decoration: none;
+}
+body a:hover {
+  color: #484848;
+  text-decoration: none;
+}
+body header {
+  font-size: 20px;
+  height: 100px;
+}
+body header nav {
+  z-index: 100;
+  background-color: white;
+}
+body header ul li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+body main {
+  margin-top: 30px;
+}
+body footer {
+  font-size: 25px;
+  text-align: center;
+  padding: 30px 0px 30px 0px;
+}
+
+#carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+#carousel-container .carousel-slide {
+  width: 100%;
+}
+#carousel-container .carousel-slide .sliderImg {
+  position: absolute;
+  min-height: 200px;
+}
+#carousel-container #counter {
+  text-shadow: 1px 1px 2px black;
+  margin-left: 50px;
+  bottom: 25px;
+  font-size: 35px;
+  color: white;
+  position: absolute;
+}
+#carousel-container #counter #countNum {
+  display: inline-block;
+  z-index: 10;
+}
+#carousel-container #counter #countOf {
+  font-size: 20px;
+  display: inline-block;
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.content-home {
+  padding-top: 70px;
+}
+
+/*ABOUT PAGE DESIGN*/
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.about-wrapper .about-picture-div {
+  flex: 1;
+}
+.about-wrapper .about-picture-div .about-img {
+  width: 100%;
+}
+.about-wrapper .about-content {
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 30px;
+  flex: 1;
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    background-color: white;
+    line-height: 60px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+  .about-wrapper .about-picture-div {
+    padding-bottom: 50px;
+  }
+
+  body main {
+    margin-top: 60px !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

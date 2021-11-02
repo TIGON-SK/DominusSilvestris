@@ -1,0 +1,19 @@
+/*ABOUT PAGE DESIGN*/
+.about-wrapper{
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  //width:100%;
+  .about-picture-div{
+  flex:1;
+    .about-img{
+      width:100%;
+    }
+  }
+  .about-content{
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    flex:1;
+  }
+}

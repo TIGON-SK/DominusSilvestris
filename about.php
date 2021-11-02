@@ -1,11 +1,11 @@
 <?php include_once "_partials/header.php"; ?>
-<div>
-    <div>
+<div class="about-wrapper">
+    <div class="about-picture-div">
         <a href="#">
-            <img src="./assets/img/forester.jpg" alt="obrazok-o firme">
+            <img class="about-img" src="./assets/img/forester.jpg" alt="obrazok-o firme">
         </a>
     </div>
-    <div>
+    <div class="about-content">
         <p>Cupcake ipsum dolor sit amet cupcake. Icing gingerbread muffin pastry bear claw bear claw shortbread.
             Liquorice sugar plum cookie tiramisu chocolate.
             Gummies gummi bears halvah oat cake powder I love bear claw I love jelly beans.
