@@ -2,7 +2,7 @@
 
     <!--Slideshow-->
     <div id="carousel-container">
-        <div class="carousel-slide">
+        <div id="carousel-slide">
             <img id="first" class="sliderImg" width="100%" src="./assets/img/bg1.jpg" alt="image in slider">
             <img class="sliderImg" width="100%" src="./assets/img/bg2.jpg" alt="image in slider">
             <img class="sliderImg" width="100%" src="./assets/img/bg3.jpg" alt="image in slider">
@@ -10,6 +10,7 @@
             <img class="sliderImg" width="100%" src="./assets/img/bg5.jpg" alt="image in slider">
             <img class="sliderImg" width="100%" src="./assets/img/bg6.jpg" alt="image in slider">
         </div>
+        <h3 id="title-home">Dominus Silvestris</h3>
         <div id="counter">
             <h3 id="countNum">1</h3>
             <h3 id="countOf">/ 6</h3>

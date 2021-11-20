@@ -8,10 +8,6 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,45 +22,36 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 </head>
 <body>
 <!-- navigation -->
-<header>
-    <nav class="navbar navbar-expand-xl navbar-light light-blue lighten-1 ">
-        <!--Logo – aktívny odkaz, ktorý smeruje na úvodnú stránku-->
-        <a class="navbar-brand" href="./index.php">
+ <header class="header">
+        <nav class="navbar">
+            <a href="admin_index.php" class="nav-logo">
             <img src="../assets/img/logo-dark2.png" alt="logo firmy">
-        </a>
-        <!--Hamburger-->
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent1"
-                aria-controls="navbarSupportedContent1"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-
-            <ul class="navbar-nav ml-auto">
-                <!--Polozky v menu-->
-                <li>
-                    <a href="admin_index.php">Domov</a>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                      <a href="admin_index.php">Domov</a>
                 </li>
-                <li>
-                    <a href="admin_about.php">O firme</a>
+                <li class="nav-item">
+                     <a href="admin_about.php">O firme</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="admin_manage-orders.php">Objednávky</a>
                 </li>
-                <li>
+                 <li class="nav-item">
                     <a href="admin_e-shop.php">Obchod</a>
-                </li>
-                <li>
+                 </li>
+                <li class="nav-item">
                     <a href="../logout.php">Odhlásenie <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
-        </div>
-    </nav>
-</header>
-<main>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+<main id="main" class="slideUp">
 <?php } else {
     header('Location: ../login.php?error=Falied to log in');
     die();

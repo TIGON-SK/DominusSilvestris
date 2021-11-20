@@ -1,7 +1,15 @@
 @import "_variables";
-*{
+//RESET
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
+
+/*MY*/
 body {
   a{
     color: $textColor;
@@ -11,30 +19,13 @@ body {
       text-decoration: none;
     }
   }
+  main{
+    margin-top: 30px;
+  }
   margin:0 auto;
   width: 80%;
   font-family: $fontFamily;
   color: $textColor;
-  header {
-    font-size: 20px;
-    height: 100px;
-    nav{
-      z-index: 100;
-      background-color: white;
-      //line-height: 40px;
-    }
-    ul{
-      li{
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
-  }
-
-  main{
-    margin-top: 30px;
-  }
-
   footer {
     font-size: 25px;
     text-align: center;
@@ -42,29 +33,10 @@ body {
   }
 }
 
+@import "_nav";
 @import "_index";
 @import "_about";
 @import "_manageOrder";
 @import "_eshop";
 @import "_login";
 @import "_logout";
-
-//MEDIA QUERY
-@media screen and (max-width: 1000px){
-  nav{
-    background-color: white;
-    line-height: 60px;
-  }
-}
-
-@media screen and (max-width: 1000px){
-  .about-wrapper{
-    flex-direction: column;
-    .about-picture-div{
-      padding-bottom: 50px;
-    }
-  }
-  body main{
-    margin-top: 60px !important;
-  }
-}
