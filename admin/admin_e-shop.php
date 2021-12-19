@@ -52,8 +52,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                     <p><?php echo $row['description']; ?></p>
                     <h4>Cena: <?php echo $row['price']; ?>$</h4>
                     <div >
-                        <a href="admin_edit-item.php?id=<?php echo($idOfItem);?>" ><i></i></a>
-                        <a href="admin_delete-item.php?id=<?php echo($idOfItem);?>"><i></i></a>
+                        <a href="admin_edit-item.php?id=<?php echo($idOfItem);?>" ><i></i>Edit</a>
+                        <a href="admin_delete-item.php?id=<?php echo($idOfItem);?>"><i></i>Delete</a>
                     </div>
                 </div>
                 <?php

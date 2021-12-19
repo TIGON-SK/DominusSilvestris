@@ -1,5 +1,5 @@
 <?php include_once "_partials/header.php"; ?>
-    <div>
+    <div class="store-order-state">
         <?php
         if (isset($_SESSION['order-item'])) {
             echo $_SESSION['order-item'];
@@ -7,7 +7,7 @@
         }
         ?>
     </div>
-<div>
+<div class="shop">
 
     <?php
     /** @var str $conn */
@@ -19,13 +19,14 @@
     if ($count > 0) {
         while ($row = $query->fetch()) {
             ?>
-            <div>
-                <img src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
-                <h3><?php echo $row['title']; ?></h3>
-                <p><?php echo $row['description']; ?></p>
-                <h4>Cena: <?php echo $row['price']; ?>$</h4>
-                <a href="order-item.php?id=<?php echo($row['id']);?>">Objednať</a>
-            </div>
+            <a class="shop-item" href="order-item.php?id=<?php echo($row['id']);?>">
+                <img class="shop-item-img" src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
+                <div class="store-item-info">
+                <h3 class="store-item-h3"><?php echo $row['title']; ?></h3>
+                <p class="store-item-description"><?php echo $row['description']; ?></p>
+                <h4 class="store-item-price">Cena: <?php echo $row['price']; ?>$</h4>
+                </div>
+            </a>
     <?php
         }
     } else {

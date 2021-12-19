@@ -1,5 +1,5 @@
 <?php include_once "_partials/header.php"; ?>
-
+<section class="home">
     <!--Slideshow-->
     <div id="carousel-container">
         <div id="carousel-slide">
@@ -29,4 +29,5 @@
             Cheesecake tiramisu tart liquorice gummies. Danish liquorice apple pie caramels I love croissant.
             Chocolate cake croissant dragée I love caramels ice cream I love macaroon.</p>
     </div>
+</section>
 <?php include_once "_partials/footer.php"; ?>

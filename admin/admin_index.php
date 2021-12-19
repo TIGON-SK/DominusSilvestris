@@ -2,7 +2,7 @@
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 
 <!--Slideshow-->
-
+<section class="home-admin">
 <div>
     <!-- <div style="background: url('../assets/img/bg1.jpg');"></div>
      <div class="img-home" style="background: url('../assets/img/bg2.jpg');"></div>
@@ -23,6 +23,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
            Cheesecake tiramisu tart liquorice gummies. Danish liquorice apple pie caramels I love croissant.
            Chocolate cake croissant dragée I love caramels ice cream I love macaroon.</p>
     </div>
+    </section>
 <?php } else {
     header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
     die();
