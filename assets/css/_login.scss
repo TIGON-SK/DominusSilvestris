@@ -1,0 +1,76 @@
+.container{
+  .login-title{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 60px;
+    font-family: $fontFamily;
+  }
+  border: 1px solid silver;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #888888;
+  margin: 0 auto;
+  width: 50%;
+  min-height: 500px;
+  background: white;
+  padding: 60px 40px;
+
+  .login-form{
+    width: 100%;
+    .password-field{
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+    }
+    .input-field{
+      border: 1px solid silver;
+      padding:10px 0px;
+      margin: 40px 0px;
+      border-radius: 5px;
+      input{
+        border: none;
+        padding: 5px;
+        width: 90%;
+        &:focus{
+          outline: none;
+        }
+      }
+      .show{
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        .fas{
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .login-button{
+      cursor: pointer;
+      color: white;
+      text-shadow: 1px 1px #101010;
+      font-family: $fontFamily;
+      font-size: large;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      background-color: forestgreen;
+      transition: background-color .2s ease-in-out;
+      &:hover{
+        background-color: #165b16;
+        transition: background-color .2s ease-in-out;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .container{
+    .login-title{
+      font-size: 30px;
+    }
+    width: 95%;
+  }
+}

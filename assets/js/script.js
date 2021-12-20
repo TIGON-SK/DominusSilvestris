@@ -1,5 +1,7 @@
+console.firebug=true;
+let sectionOnPage = $('section');
 $(function(){
-    if($('section').is('.home')){
+    if(sectionOnPage.is('.home')){
         window.onload = function () {
             let carouselContainer = document.getElementById("carousel-container");
             let carouselSlide = document.getElementById("carousel-slide");
@@ -18,5 +20,19 @@ $(function(){
         }
 
     }
+    if(sectionOnPage.is('.eshop')) {
+        window.onload = function () {
+        let sessionMessageDiv = document.querySelector('.order-state-div');
+        let sessionMessage = document.querySelector('.order-state-message');
+        if (sessionMessage.textContent!==""){
+            sessionMessageDiv.style.display="block";
+        }
+        else{
+            sessionMessageDiv.style.display="none";
+        }
+
+        }
+    }
+
 });
 

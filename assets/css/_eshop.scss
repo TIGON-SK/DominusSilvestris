@@ -1,6 +1,9 @@
-.store-order-state {
+.order-state-div {
+  display: none;
   color: white;
   background-color: $primaryColor;
+  padding: 20px;
+  width: 45%;
 }
 
 .shop {
@@ -10,21 +13,24 @@
     padding: 30px;
     width: 100%;
     border-bottom: 1px solid gray;
-
-    .shop-item-img {
+    .store-img-wrapper{
       flex: 30%;
-      border-radius: 10px;
       float: left;
-      box-shadow: 5px 5px 5px #ccc;
-      -moz-box-shadow: 5px 5px 5px #ccc;
-      -webkit-box-shadow: 5px 5px 5px #ccc;
-      -khtml-box-shadow: 5px 5px 5px #ccc;
+      .shop-item-img {
+        border-radius: 10px;
+        width: 90%;
+        box-shadow: 5px 5px 5px #ccc;
+        -moz-box-shadow: 5px 5px 5px #ccc;
+        -webkit-box-shadow: 5px 5px 5px #ccc;
+        -khtml-box-shadow: 5px 5px 5px #ccc;
+      }
     }
 
+
     .store-item-info {
+      flex: 70%;
       display: flex;
       flex-direction: column;
-      flex: 70%;
       padding-left: 20px;
 
       .store-item-h3 {
@@ -53,9 +59,11 @@
     .shop-item {
       display: flex;
       flex-direction: row;
-
-      .shop-item-img {
-        flex: 50%;
+      .store-img-wrapper {
+        //flex: 50%;
+        .shop-item-img {
+         // width: 90%;
+        }
       }
 
       .store-item-info {
@@ -71,12 +79,12 @@
     .shop-item {
       display: flex;
       flex-direction: column;
-
+      .store-img-wrapper{
       .shop-item-img {
-        flex-align: center;
+        text-align: center;
         width: 50%;
         margin-bottom: 30px;
-      }
+      }}
 
       .store-item-info {
         padding-left: 0px;
@@ -97,11 +105,11 @@
     .shop-item {
       display: flex;
       flex-direction: column;
-
+      .store-img-wrapper{
       .shop-item-img {
-        flex-align: center;
+        text-align: center;
         width: 90%;
-      }
+      }}
 
       .store-item-info {
 

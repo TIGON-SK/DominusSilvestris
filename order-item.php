@@ -4,7 +4,7 @@ use Cassandra\Date;
 
 include_once "_partials/header.php"; ?>
 
-    <div>
+    <div class="container">
         <?php
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -22,7 +22,7 @@ include_once "_partials/header.php"; ?>
                     $imgName = $item['image_name'];
                     $price = $item['price'];
                     ?>
-                    <div>
+                    <div class="title-and-image-order-item">
                         <h3><?php echo($title); ?></h3>
                         <img src="admin/admin_img-uploads/<?php echo($imgName); ?>" min="0" alt="obrazok">
                     </div>
@@ -31,20 +31,26 @@ include_once "_partials/header.php"; ?>
             }
         }
         ?>
-        <form action="" method="post">
-            <label for="">Vaše meno</label>
-            <input type="text" name="customer_name" required>
-
-            <label for="">Váš email</label>
-            <input type="email" name="customer_email" required>
-
-            <label for="">Vaša adresa</label>
-            <input type="text" name="customer_address" required>
-
-            <label for="">Mnozstvo</label>
-            <input type="number" name="qty" step="1" required>
-
-            <input type="submit" name="submit">
+        <form class="form-order-item" action="" method="post">
+            <div class="input-field-order-item">
+                <label for="">Vaše meno</label>
+                <input type="text" name="customer_name" required>
+            </div>
+            <div class="input-field-order-item">
+                <label for="">Váš email</label>
+                <input type="email" name="customer_email" required>
+            </div>
+            <div class="input-field-order-item">
+                <label for="">Vaša adresa</label>
+                <input type="text" name="customer_address" required>
+            </div>
+            <div class="input-field-order-item">
+                <label for="">Mnozstvo</label>
+                <input type="number" name="qty" step="1" required>
+            </div>
+            <div class="input-field-order-item">
+                <input type="submit" name="submit">
+            </div>
         </form>
     </div>
 <?php
@@ -53,8 +59,8 @@ if (isset($_POST['submit'])) {
     $customer_email = $_POST['customer_email'];
     $customer_address = $_POST['customer_address'];
     $qty = $_POST['qty'];
-    if ($qty<=0){
-        $_SESSION['order-item'] = "<div>Objednavka bola neúspešná (zle zadane mnozstvo)!</div>";
+    if ($qty <= 0) {
+        $_SESSION['order-item'] = "Objednavka bola neúspešná (zle zadane mnozstvo)!";
         header("Location:e-shop.php");
         die();
     }
@@ -77,11 +83,11 @@ if (isset($_POST['submit'])) {
     $query->bindParam("customer_address", $customer_address, PDO::PARAM_STR);
     $result = $query->execute();
     if ($result) {
-        $_SESSION['order-item'] = "<div>Objednavka bola uspešne zaevidovaná.</div>";
+        $_SESSION['order-item'] = "Objednavka bola uspešne zaevidovaná.";
         header("Location:e-shop.php");
         die();
     } else {
-        $_SESSION['order-item'] = "<div>Objednavka bola neúspešná!</div>";
+        $_SESSION['order-item'] = "Objednavka bola neúspešná!";
         header("Location:e-shop.php");
         die();
     }

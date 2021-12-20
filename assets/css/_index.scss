@@ -50,5 +50,110 @@
   }
 }
 .content-home{
+  text-align: center;
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .cards{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-bottom: 30px;
+    .card{
+      display: grid;
+      grid-template-areas: "image" "text";
+      text-align: center;
+      box-shadow: 3px 3px 10px black;
+      border-radius: 15px;
+      height: 320px;
+      width: 25%;
+      transform: scale(1);
+      transition: .2s ease-in-out;
+      &:hover{
+        transform: scale(1.2);
+        transition: .2s ease-in-out;
+      }
+
+      .card-image{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        grid-area: image;
+        height: 260px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .card-description{
+        grid-area: text;
+        color: black;
+        padding-top: 5px;
+      }
+    }
+  }
+  .google-map-wrapper{
+    .title-for-map{
+      font-size: 35px;
+      padding-bottom: 30px;
+    }
+    .google-map{
+      margin: 0 auto;
+      width: 70%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .content-home{
+    .cards{
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;
+      .card{
+        width: 30%;
+        height: 200px;
+        .card-image{
+          height: 150px;
+        }
+        .card-description{
+
+        }
+      }
+    }
+    .google-map-wrapper{
+      .title-for-map{
+
+      }
+      .google-map{
+        width: 100%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .content-home{
+    .cards{
+      display: flex;
+      flex-direction: column;
+      justify-content:space-between;
+      .card{
+        margin: 20px auto;
+        width: 70%;
+        height: 200px;
+        .card-image{
+          height: 120px;
+        }
+        .card-description{
+
+        }
+      }
+    }
+    .google-map-wrapper{
+      .title-for-map{
+
+      }
+      .google-map{
+        width: 100%;
+      }
+    }
+  }
 }

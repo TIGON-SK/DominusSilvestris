@@ -1,11 +1,12 @@
 <?php include_once "_partials/header.php"; ?>
-    <div class="store-order-state">
-        <?php
+<section class="eshop">
+    <div class="order-state-div">
+        <p class="order-state-message"><?php
         if (isset($_SESSION['order-item'])) {
             echo $_SESSION['order-item'];
             unset($_SESSION['order-item']);
         }
-        ?>
+        ?></p>
     </div>
 <div class="shop">
 
@@ -20,7 +21,9 @@
         while ($row = $query->fetch()) {
             ?>
             <a class="shop-item" href="order-item.php?id=<?php echo($row['id']);?>">
+                <div class="store-img-wrapper">
                 <img class="shop-item-img" src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
+                </div>
                 <div class="store-item-info">
                 <h3 class="store-item-h3"><?php echo $row['title']; ?></h3>
                 <p class="store-item-description"><?php echo $row['description']; ?></p>
@@ -41,4 +44,5 @@
     ?>
 
 </div>
+</section>
 <?php include_once "_partials/footer.php"; ?>

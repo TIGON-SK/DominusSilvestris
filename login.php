@@ -1,9 +1,10 @@
 <?php include_once "_partials/header.php";
 if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_username'])) { ?>
-    <div>
 
-        <form action="auth.php" method="post">
-            <h1 >Prihlásenie</h1>
+    <div class="container">
+        <h1 class="login-title">Prihlásenie</h1>
+        <form class="login-form" action="auth.php" method="post">
+
             <? if (isset($_GET['error'])) { ?>
                 <div>
                     <strong>CHYBA!</strong> <?php echo htmlspecialchars($_GET['error']); ?>
@@ -15,25 +16,28 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_username'])) { ?>
                     <strong>VAROVANIE!</strong> <?php echo htmlspecialchars($_GET['warning']); ?>
                 </div>
             <?php } ?>
-            <div>
-                <label for="">Emailová adresa</label>
+            <div class="input-field">
                 <input type="email"
                        name="email"
+                       placeholder="Emailová adresa"
                        value="<?php if (isset($_GET['email'])) {
                            echo(htmlspecialchars
                            ($_GET['email']));
-                       } ?>"
-                       >
+                       } ?>" required>
             </div>
-            <div >
-                <label for="">Heslo</label>
-                <input type="password"
-                       name="password"
-                       >
+            <div class="input-field password-field">
+                <input class="pswrd" type="password"
+                       name="password" placeholder="heslo" required>
+                <span class="show"><i class="fas fa-eye"></i></span>
+
+            </div>
+            <div class="button">
+                <div class="inner"></div>
+                <button class="login-button" type="submit" name="submit">Prihlásiť sa</button>
             </div>
 
-            <button type="submit" name="submit">Prihlásiť sa</button>
         </form>
+        <script src="assets/js/showPassword.js"></script>
     </div>
 <?php } else {
     header('Location: admin/admin_index.php');
