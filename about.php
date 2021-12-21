@@ -1,20 +1,30 @@
 <?php include_once "_partials/header.php"; ?>
 <div class="about-wrapper">
-    <div class="about-picture-div">
-        <a href="#">
-            <img class="about-img" src="./assets/img/forester.jpg" alt="obrazok-o firme">
-        </a>
+            <?php /** @var string $conn */
+            $query= $conn->prepare("SELECT * FROM tbl_frontend LIMIT 1;");
+            $query->execute();
+            $count=$query->rowCount();
+            $image = "";
+            $textAbout = "";
+            if ($count > 0) {
+                while($row=$query->fetch()){
+                    $textAbout = $row['textAbout'];
+                    $image = $row['image_name'];
+                }
+            }
+            else{
+                echo "<p>Nebol nájdený žiadny text.</p>";
+            }
+
+            ?>
+    <div class="about-img-wrapper">
+            <img class="about-img" src="./assets/img/frontend_imgs/<?php echo($image);?>" alt="obrazok-o firme">
     </div>
     <div class="about-content">
-        <p>Cupcake ipsum dolor sit amet cupcake. Icing gingerbread muffin pastry bear claw bear claw shortbread.
-            Liquorice sugar plum cookie tiramisu chocolate.
-            Gummies gummi bears halvah oat cake powder I love bear claw I love jelly beans.
-            Apple pie muffin donut sugar plum lemon drops candy canes. Jujubes gummi bears pudding bonbon pastry candy I love toffee.
-            Powder sugar plum lollipop chocolate bar macaroon shortbread. Croissant wafer croissant croissant topping.
-            Shortbread jujubes chocolate cake gummies candy canes.
-            Powder marshmallow shortbread chocolate cake candy canes marzipan pudding sweet roll icing.
-            Cheesecake tiramisu tart liquorice gummies. Danish liquorice apple pie caramels I love croissant.
-            Chocolate cake croissant dragée I love caramels ice cream I love macaroon.</p>
+        <?php
+        echo"<p>$textAbout</p>";
+        ?>
+
     </div>
 
 </div>

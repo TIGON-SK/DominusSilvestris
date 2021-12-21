@@ -48,7 +48,8 @@ if (isset($_GET['id'])) {
         </div>
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_phone">Vaše tel. číslo</label>
-            <input class="input-order-item" type="tel" placeholder="0123-456-789" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" name="customer_phone"
+            <input class="input-order-item" type="tel" placeholder="0123-456-789" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+                   name="customer_phone"
                    required>
         </div>
         <div class="input-field-order-item">
@@ -73,7 +74,7 @@ if (isset($_POST['submit'])) {
         header("Location:e-shop.php");
         die();
     }
-    $status = "ordered";
+    $status = "objednané";
     $order_date = "";
 
     $query = $conn->prepare("INSERT INTO tbl_order 

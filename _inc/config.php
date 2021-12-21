@@ -13,6 +13,7 @@ define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_NAME', 'dominus_silvestris');
+define('MAX_SIZE',3000000);
 
 try {
     $conn = new PDO("mysql:host=".LOCALHOST.";dbname=".DB_NAME,

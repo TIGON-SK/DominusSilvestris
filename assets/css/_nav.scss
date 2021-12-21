@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 /*scss*/
+.slideUp{
+  margin-top: 30px;
+  transition: margin-top 0.2s linear;
+}
+.slideDown{
+  margin-top: 390px;
+  transition: margin-top 0.2s linear;
+}
+.slideDown-admin{
+  margin-top: 500px;
+  transition: margin-top 0.2s linear;
+}
+.slideUp-admin{
+  margin-top: 30px;
+  transition: margin-top 0.2s linear;
+}
 .header {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
@@ -51,16 +67,9 @@
 }
 //MEDIA
 @media only screen and (max-width: 1000px) {
-  .slideUp{
-    margin-top: 30px;
-    transition: margin-top 0.2s linear;
-  }
-  .slideDown{
-    margin-top: 390px;
-    transition: margin-top 0.2s linear;
-  }
+
   .nav-menu {
-    position: fixed;
+    position: absolute;
     left: -100%;
     top: 5rem;
     flex-direction: column;

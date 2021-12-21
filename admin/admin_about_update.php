@@ -12,7 +12,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $error_value = $_FILES['picture']['error'];
 
             if ($img_size != 0 && $error_value == 0) {
-                if ($img_size > 1250000) {
+                if ($img_size > MAX_SIZE) {
                     $_SESSION['error_uploading'] =  "<div>Súbor je príliš veľký!</div>";
                     header("Location:admin_about.php");
                     die();

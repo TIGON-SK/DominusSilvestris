@@ -1,0 +1,38 @@
+.mng-order-explanations{
+  background-color: $secondaryColor;
+  color: white;
+  text-shadow: 1px 1px 8px #000;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  line-height: 25px;
+  font-family: "Montserrat", sans-serif;
+  .mng-order-explanation{
+    display: block;
+  }
+}
+.mng-order-table {
+  width: 100%;
+
+  .mng-order-head-row {
+
+    .mng-order-table-head {
+      border-right: 2px solid white;
+      color: white;
+      background-color: $fernColor;
+      padding: 10px;
+    }
+  }
+
+  .mng-order-table-content {
+    border-right: 2px solid white;
+    color: $textColor;
+    background-color: #EEEEEE;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .mng-order-explanations{
+    width: 100%;
+  }
+}

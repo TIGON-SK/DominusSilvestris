@@ -1,4 +1,5 @@
 @import "_variables";
+@import "_mixins";
 //RESET
 * {
   margin: 0;
@@ -19,9 +20,8 @@ body {
       text-decoration: none;
     }
   }
-  main{
-    margin-top: 30px;
-  }
+
+
   margin:0 auto;
   width: 80%;
   font-family: $fontFamily;
@@ -39,7 +39,8 @@ body {
 @import "_nav";
 @import "_index";
 @import "_about";
-@import "_manageOrder";
 @import "_eshop";
 @import "_login";
 @import "_order-item";
+@import "_manage-order";
+@import "_admin-eshop";

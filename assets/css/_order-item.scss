@@ -30,13 +30,15 @@
 
     .input-field-order-item {
       padding: 20px;
-    position: relative;
+      position: relative;
+
       .label-order-item {
         display: block;
         padding-bottom: 10px;
         font-size: 25px;
       }
-      .input-order-item{
+
+      .input-order-item {
         width: 100%;
         padding: 7px;
         border-radius: 5px;
@@ -44,24 +46,16 @@
         font-family: "Montserrat", sans-serif;
         color: $textColor;
       }
-      .button-order-item{
-        cursor: pointer;
+
+      .button-order-item {
         font-size: 15px;
-        border: none;
-        color: white;
         text-shadow: 1px 1px 10px #000;
         border-radius: 5px;
         padding: 10px 40px;
         position: absolute;
         right: 10px;
-        bottom:10px;
-        background-color: forestgreen;
-        transition: background-color .2s ease-in-out;
-        &:hover{
-          background-color: #165b16;
-          transition: background-color .2s ease-in-out;
-        }
-
+        bottom: 10px;
+        @include buttonMixin;
       }
     }
   }
@@ -75,14 +69,17 @@
     .image-order-item {
       width: 60%;
       margin: 0 auto;
+
       .img-order-item {
         width: 100%;
         border-radius: 10px;
       }
     }
+
     .form-order-item {
       margin: 50px 0px;
       flex: 100%;
+
       .input-field-order-item {
         padding: 20px;
 

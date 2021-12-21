@@ -4,38 +4,44 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
     <div>
         <div>
             <div>
-                <?php if (isset($_SESSION['change_of_status_failed'])) {
-                    echo $_SESSION['change_of_status_failed'];
-                    unset($_SESSION['change_of_status_failed']);
-                }
-                if (isset($_SESSION['change_of_status_success'])) {
-                    echo $_SESSION['change_of_status_success'];
-                    unset($_SESSION['change_of_status_success']);
-                } ?>
+                <p>
+                    <?php if (isset($_SESSION['change_of_status_failed'])) {
+                        echo $_SESSION['change_of_status_failed'];
+                        unset($_SESSION['change_of_status_failed']);
+                    }
+                    ?>
+                </p>
+                <p>
+                    <?php
+                    if (isset($_SESSION['change_of_status_success'])) {
+                        echo $_SESSION['change_of_status_success'];
+                        unset($_SESSION['change_of_status_success']);
+                    } ?>
+                </p>
             </div>
-            <div>
-                Vysvetlivky: <br>
-                Objednané - <i class="bi bi-bag-check"></i>&nbsp;&nbsp;
-                Je to na ceste - <i class="bi bi-truck"></i>&nbsp;&nbsp;
-                Doručené - <i class="bi bi-check-circle"></i>&nbsp;&nbsp;
-                Vymazať - <i class="bi bi-trash"></i>
+            <div class="mng-order-explanations">
+                <p class="mng-order-explanation">Vysvetlivky:</p>
+                <p class="mng-order-explanation">Objednané - <i class="bi bi-bag-check"></i></p>
+                <p class="mng-order-explanation">Na ceste - <i class="bi bi-truck"></i></p>
+                <p class="mng-order-explanation">Doručené - <i class="bi bi-check-circle"></i></p>
+                <p class="mng-order-explanation">Zrušiť/Vymazať - <i class="bi bi-trash"></i></p>
             </div>
         </div>
-        <table>
+        <table class="mng-order-table">
             <thead>
-            <tr>
-                <th>S.N.</th>
-                <th>Názov produktu</th>
-                <th>Cena</th>
-                <th>Počet</th>
-                <th>Celkovo</th>
-                <th>Čas objednávky</th>
-                <th>Stav</th>
-                <th>Meno zákazníka</th>
-                <th>Email zákazníka</th>
-                <th>Tel.č zákazníka</th>
-                <th>Adresa zákazníka</th>
-                <th>Zmeniť stav <i class="bi bi-info-circle"></i></th>
+            <tr class="mng-order-head-row">
+                <th class="mng-order-table-head">S.N.</th>
+                <th class="mng-order-table-head">Názov produktu</th>
+                <th class="mng-order-table-head">Cena</th>
+                <th class="mng-order-table-head">Počet</th>
+                <th class="mng-order-table-head">Celkovo</th>
+                <th class="mng-order-table-head">Čas objednávky</th>
+                <th class="mng-order-table-head">Stav</th>
+                <th class="mng-order-table-head">Meno zákazníka</th>
+                <th class="mng-order-table-head">Email zákazníka</th>
+                <th class="mng-order-table-head">Tel.č zákazníka</th>
+                <th class="mng-order-table-head">Adresa zákazníka</th>
+                <th class="mng-order-table-head">Zmeniť stav <i class="bi bi-info-circle"></i></th>
             </tr>
             </thead>
 
@@ -51,46 +57,46 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                     $_SESSION['order-id'] = $order['id'];
                     ?>
                     <tr>
-                        <th><?php echo $sn++; ?>.</th>
-                        <th><?php echo $order['item_name']; ?></th>
-                        <th><?php echo $order['price']; ?>€</th>
-                        <th><?php echo $order['qty']; ?></th>
-                        <th><?php echo($order['qty'] * $order['price']); ?>€</th>
-                        <th><?php echo $order['order_date']; ?></th>
-                        <th><?php echo $order['status']; ?></th>
-                        <th><?php echo $order['customer_name']; ?></th>
-                        <th><?php echo $order['customer_email']; ?></th>
-                        <th><?php echo $order['customer_phone']; ?></th>
-                        <th><?php echo $order['customer_address']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $sn++; ?>.</th>
+                        <th class="mng-order-table-content"><?php echo $order['item_name']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['price']; ?>€</th>
+                        <th class="mng-order-table-content"><?php echo $order['qty']; ?></th>
+                        <th class="mng-order-table-content"><?php echo($order['qty'] * $order['price']); ?>€</th>
+                        <th class="mng-order-table-content"><?php echo $order['order_date']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['status']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['customer_name']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['customer_email']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['customer_phone']; ?></th>
+                        <th class="mng-order-table-content"><?php echo $order['customer_address']; ?></th>
                         <form action="admin_change-order-status.php" method="POST">
-                            <th>
+                            <th class="mng-order-table-content">
                                 <i class="bi bi-bag-check">&nbsp;
-                                    <input type="radio" name="orderRadio" value="ordered"
-                                        <?php if ($order['status'] == "ordered") {
+                                    <input type="radio" name="orderRadio" value="objednané"
+                                        <?php if ($order['status'] == "objednané") {
                                             echo "checked";
                                         } else {
                                             echo "";
                                         } ?>></i><br>
 
                                 <i class="bi bi-truck">&nbsp;
-                                    <input type="radio" name="orderRadio" value="onway"
-                                        <?php if ($order['status'] == "onway") {
+                                    <input type="radio" name="orderRadio" value="na ceste"
+                                        <?php if ($order['status'] == "na ceste") {
                                             echo "checked";
                                         } else {
                                             echo "";
                                         } ?>></i><br>
 
                                 <i class="bi bi-check-circle">&nbsp;
-                                    <input type="radio" name="orderRadio" value="delivered"
-                                        <?php if ($order['status'] == "delivered") {
+                                    <input type="radio" name="orderRadio" value="doručené"
+                                        <?php if ($order['status'] == "doručené") {
                                             echo "checked";
                                         } else {
                                             echo "";
                                         } ?>></i><br>
 
                                 <i class="bi bi-trash">&nbsp;
-                                    <input type="radio" name="orderRadio" value="cancelled"
-                                        <?php if ($order['status'] == "cancelled") {
+                                    <input type="radio" name="orderRadio" value="zrušené"
+                                        <?php if ($order['status'] == "zrušené") {
                                             echo "checked";
                                         } else {
                                             echo "";

@@ -15,19 +15,20 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
         while ($row = $query->fetch()) {
             $id = $row['id'];
             ?>
-            <form method="post" action="admin_about_update.php" enctype="multipart/form-data">
-                <div class="about-picture-div">
-                    <a href="#">
-                        <img class="about-img" src="../assets/img/frontend_imgs/<?php echo $row['image_name'] ?>"
-                             alt="obrazok-o firme">
-                    </a>
-                    <label for="picture">Obrazok:</label>
-                    <input type="file" name="picture">
+            <div class="about-img-wrapper">
+            <img class="about-img" src="../assets/img/frontend_imgs/<?php echo $row['image_name'] ?>"
+                 alt="obrazok-o firme">
                 </div>
+            <form class="content-wrapper-about" method="post" action="admin_about_update.php" enctype="multipart/form-data">
+
+
+
                 <div class="about-content">
-                    <label for="text">Text:</label>
-                    <textarea rows="10" cols="100" name="text"><?php echo $row['textAbout'] ?></textarea>
-                    <input type="submit" name="submit">
+                    <label class="label-for-img-about-admin" for="picture">Obrázok:</label>
+                    <input class="input-about-admin" type="file" name="picture">
+                    <label class="label-about-admin" for="text">Text:</label>
+                    <textarea class="textarea-about-admin" name="text"><?php echo $row['textAbout'] ?></textarea>
+                    <input class="btn-admin-about" type="submit" name="submit" value="Zmeniť">
                 </div>
                 <form>
             </div>

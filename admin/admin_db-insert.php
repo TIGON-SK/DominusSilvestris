@@ -6,7 +6,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
             $price = $_POST['price'];
-            if ($price<=0){
+            if ($price <= 0) {
                 $_SESSION['item-added'] = "<div>Prvok nebol pridaný, zle zadaná cena!</div>";
                 header("Location:admin_e-shop.php");
                 die();
@@ -18,8 +18,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $error_value = $_FILES['item-img']['error'];
 
             if ($img_size != 0 && $error_value == 0) {
-                if ($img_size > 1250000) {
-                    $_SESSION['img-upload'] = "<div>Súbor je príliš veľký!</div>";
+                if ($img_size > MAX_SIZE) {
+                    $_SESSION['img-upload'] = "<div>Súbor je príliš veľký! $img_size</div>";
                     header("Location:admin_add-item.php");
                     die();
                 } else {
@@ -42,11 +42,11 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                             $query->bindParam("image_name", $new_img_name, PDO::PARAM_STR);
                             $result = $query->execute();
                             if ($result) {
-                                $_SESSION['item-added'] = "<div>Prvok bol úspešne pridaný.</div>";
+                                $_SESSION['item-added'] = "Prvok bol úspešne pridaný.";
                                 header("Location:admin_e-shop.php");
                                 die();
                             } else {
-                                $_SESSION['item-added'] = "<div>Prvok nebol pridaný!</div>";
+                                $_SESSION['item-added'] = "Prvok nebol pridaný!";
                                 header("Location:admin_e-shop.php");
                                 die();
                             }
@@ -72,15 +72,15 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                 $query->bindParam("image_name", $img_name, PDO::PARAM_STR);
                 $result = $query->execute();
                 if ($result) {
-                    $_SESSION['item-added'] = "<div>Prvok bol úspešne pridaný.</div>";
+                    $_SESSION['item-added'] = "Prvok bol úspešne pridaný.";
                     header("Location:admin_e-shop.php");
                     die();
                 } else {
-                    $_SESSION['item-added'] = "<div>Prvok nebol pridaný!</div>";
+                    $_SESSION['item-added'] = "Prvok nebol pridaný!";
                     header("Location:admin_e-shop.php");
                     die();
                 }
-            }else {
+            } else {
                 $_SESSION['img-upload'] = "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
                 header("Location:admin_add-item.php");
                 die();

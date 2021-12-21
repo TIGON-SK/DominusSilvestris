@@ -20,11 +20,11 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                     if ($result) {
                         $remove = unlink($path);
                         if ($remove == false) {
-                            $_SESSION['item-edited'] = "<div>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
+                            $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
                             header("Location:admin_e-shop.php");
                             die();
                         } else {
-                            $_SESSION['item-edited'] = "<div>Produkt bol úspešne vymazaný.</div>";
+                            $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
                             header("Location:admin_e-shop.php");
                             die();
                         }
@@ -35,12 +35,12 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                     $query3 = $conn->prepare("DELETE FROM tbl_item WHERE id=?");
                     $result3 = $query3->execute([$id]);
                     if ($result3){
-                        $_SESSION['item-edited'] = "<div>Produkt bol úspešne vymazaný.</div>";
+                        $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
                         header('Location: admin_e-shop.php');
                         die();
                     }
                     else{
-                        $_SESSION['item-edited'] = "<div>Nepodarilo sa vymazať produkt, skúste to znova!</div>";
+                        $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
                         header('Location: admin_e-shop.php');
                         die();
                     }

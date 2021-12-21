@@ -1,0 +1,11 @@
+@mixin buttonMixin {
+  cursor: pointer;
+  color: white;
+  border: none;
+  background-color: forestgreen;
+  transition: background-color .2s ease-in-out;
+  &:hover {
+    background-color: #165b16;
+    transition: background-color .2s ease-in-out;
+  }
+}

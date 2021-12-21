@@ -51,7 +51,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
             </div>
         </nav>
     </header>
-<main id="main" class="slideUp">
+<main id="main-admin" class="slideUp-admin">
 <?php } else {
     header('Location: ../login.php?error=Falied to log in');
     die();

@@ -7,7 +7,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
         $status_of_order = $_POST['orderRadio'];
         $id_of_order = $_POST['id'];
 
-        if ($status_of_order=="cancelled"){
+        if ($status_of_order=="zrušené"){
             /** @var str $conn */
             $query2 = $conn->prepare('DELETE FROM tbl_order WHERE id=:id2');
             $query2->bindParam(":id2",$id_of_order, PDO::PARAM_INT);
