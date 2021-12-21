@@ -3,8 +3,10 @@
 <footer>
     <!-- Copyright -->
     <div>
-        ©
-        <strong><a href="#">Dominus&nbsp;Silvestris</a></strong>
+
+        <strong><p>© Dominus&nbsp;Silvestris</p><br>
+            <i class="fas fa-envelope"></i><a href="mailto:sv.martin11@yahoo.com" subject="Email odoslaný zo stránky" class="font-small"> sv.martin11@yahoo.com</a>
+        </strong>
     </div>
     <!-- Copyright -->
 </footer>

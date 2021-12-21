@@ -33,6 +33,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                 <th>Stav</th>
                 <th>Meno zákazníka</th>
                 <th>Email zákazníka</th>
+                <th>Tel.č zákazníka</th>
                 <th>Adresa zákazníka</th>
                 <th>Zmeniť stav <i class="bi bi-info-circle"></i></th>
             </tr>
@@ -59,6 +60,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
                         <th><?php echo $order['status']; ?></th>
                         <th><?php echo $order['customer_name']; ?></th>
                         <th><?php echo $order['customer_email']; ?></th>
+                        <th><?php echo $order['customer_phone']; ?></th>
                         <th><?php echo $order['customer_address']; ?></th>
                         <form action="admin_change-order-status.php" method="POST">
                             <th>
