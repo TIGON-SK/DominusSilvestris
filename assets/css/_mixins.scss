@@ -1,3 +1,36 @@
+@mixin formItemMixin{
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px #6a6a6a;
+}
+@mixin labelOfItemMixin{
+  display: block;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+@mixin inputFieldMixin{
+  padding: 20px;
+  position: relative;
+}
+@mixin textAreaMixin{
+  outline: none;
+  color: $textColor;
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+@mixin inputItemMixin{
+  outline: none;
+  width: 100%;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: $textColor;
+}
 @mixin buttonMixin {
   cursor: pointer;
   color: white;
@@ -8,4 +41,13 @@
     background-color: #165b16;
     transition: background-color .2s ease-in-out;
   }
+}
+@mixin buttonForItemMixin{
+  font-size: 15px;
+  text-shadow: 1px 1px 10px #000;
+  border-radius: 5px;
+  padding: 10px 40px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }

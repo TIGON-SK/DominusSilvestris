@@ -1,24 +1,37 @@
 <?php include_once "_admin-partials/admin_header.php";
 if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
-<div>
-    <?php
-    if (isset($_SESSION['img-upload'])) {
-        echo $_SESSION['img-upload'];
-        unset($_SESSION['img-upload']);
-    } ?>
-    <form action="admin_db-insert.php" method="post" enctype="multipart/form-data">
-        <label for="">Názov: </label>
-        <input type="text" name="title" required placeholder="nazov...">
-        <label for="">Popis: </label>
-        <textarea type="text" name="description" placeholder="popis..." cols="30" rows="5"></textarea>
-        <label for="">Cena: </label>
-        <input type="number" step="any"  pattern="\d*" maxlength="4" name="price" required placeholder="cena...">
-        <label for="">Obrázok: </label>
-        <input type="file" name="item-img">
-        <input type="submit" name="btn-insert-into-db" value="Pridať položku">
-    </form>
-</div>
-
+    <div>
+        <p>
+            <?php
+            if (isset($_SESSION['img-upload'])) {
+                echo $_SESSION['img-upload'];
+                unset($_SESSION['img-upload']);
+            } ?>
+        </p>
+        <form class="form-add-item" action="admin_db-insert.php" method="post" enctype="multipart/form-data">
+            <div class="input-field-add-item">
+                <label class="label-add-item" for="title">Názov: </label>
+                <input class="input-add-item" type="text" name="title" required placeholder="nazov...">
+            </div>
+            <div class="input-field-add-item">
+                <label class="label-add-item" for="description">Popis: </label>
+                <textarea class="textarea-add-item" type="text" name="description" placeholder="popis..." cols="30"
+                          rows="5"></textarea>
+            </div>
+            <div class="input-field-add-item">
+                <label class="label-add-item" for="price">Cena: </label>
+                <input class="input-add-item" type="number" step="any" pattern="\d*" maxlength="4" name="price" required
+                       placeholder="cena...">
+            </div>
+            <div class="input-field-add-item">
+                <label class="label-add-item" for="item-img">Obrázok: </label>
+                <input class="input-add-item" type="file" name="item-img">
+            </div>
+            <div class="input-field-add-item">
+                <input class="button-add-item" type="submit" name="btn-insert-into-db" value="Pridať položku">
+            </div>
+        </form>
+    </div>
 
 
 <?php } else {

@@ -1,0 +1,22 @@
+.form-edit-item {
+  @include formItemMixin;
+  .input-field-edit-item {
+    @include inputFieldMixin;
+    .label-edit-item {
+      @include labelOfItemMixin;
+    }
+
+    .textarea-edit-item {
+      @include textAreaMixin;
+    }
+
+    .input-edit-item {
+      @include inputItemMixin;
+    }
+
+    .button-edit-item {
+      @include buttonForItemMixin;
+      @include buttonMixin;
+    }
+  }
+}

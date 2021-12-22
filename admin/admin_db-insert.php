@@ -7,7 +7,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $description = $_POST['description'];
             $price = $_POST['price'];
             if ($price <= 0) {
-                $_SESSION['item-added'] = "<div>Prvok nebol pridaný, zle zadaná cena!</div>";
+                $_SESSION['item-added'] = "Prvok nebol pridaný, zle zadaná cena!";
                 header("Location:admin_e-shop.php");
                 die();
             }
@@ -19,7 +19,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
 
             if ($img_size != 0 && $error_value == 0) {
                 if ($img_size > MAX_SIZE) {
-                    $_SESSION['img-upload'] = "<div>Súbor je príliš veľký! $img_size</div>";
+                    $_SESSION['img-upload'] = "Súbor je príliš veľký! $img_size";
                     header("Location:admin_add-item.php");
                     die();
                 } else {
@@ -52,12 +52,12 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                             }
 
                         } else {
-                            $_SESSION['img-upload'] = "<div>Nastala chyba pri nahrávaní súboru, skúste to znova!</div>";
+                            $_SESSION['img-upload'] = "Nastala chyba pri nahrávaní súboru, skúste to znova!";
                             header("Location:admin_add-item.php");
                             die();
                         }
                     } else {
-                        $_SESSION['img-upload'] = "<div>Nemôžete nahrať tento typ súboru!</div>";
+                        $_SESSION['img-upload'] = "Nemôžete nahrať tento typ súboru!";
                         header("Location:admin_add-item.php");
                         die();
                     }
@@ -81,13 +81,13 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                     die();
                 }
             } else {
-                $_SESSION['img-upload'] = "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
+                $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
                 header("Location:admin_add-item.php");
                 die();
             }
         }
     } else {
-        $_SESSION['img-upload'] = "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
+        $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
         header("Location:admin_add-item.php");
         die();
     }

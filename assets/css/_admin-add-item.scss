@@ -1,0 +1,19 @@
+.form-add-item {
+  @include formItemMixin;
+  .input-field-add-item {
+    @include inputFieldMixin;
+    .label-add-item {
+      @include labelOfItemMixin;
+    }
+    .textarea-add-item {
+      @include textAreaMixin;
+    }
+    .input-add-item {
+      @include inputItemMixin;
+    }
+    .button-add-item {
+      @include buttonForItemMixin;
+      @include buttonMixin;
+    }
+  }
+}

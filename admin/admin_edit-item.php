@@ -10,30 +10,36 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
             while ($itemInfo = $query1->fetch()) {
 
                 ?>
-                <div>
-                    <form action="admin_db-update.php" method="post" enctype="multipart/form-data">
-                        <label for="">Názov: </label>
-                        <input type="text" name="title" required placeholder="nazov..."
+
+                <form class="form-edit-item" action="admin_db-update.php" method="post" enctype="multipart/form-data">
+                    <div class="input-field-edit-item">
+                        <label class="label-edit-item" for="title">Názov: </label>
+                        <input class="input-edit-item" type="text" name="title" required placeholder="nazov..."
                                value="<?php echo $itemInfo['title']; ?>">
-
-                        <label for="">Popis: </label>
-                        <textarea type="text" name="description" placeholder="popis..."
+                    </div>
+                    <div class="input-field-edit-item">
+                        <label class="label-edit-item" for="description">Popis: </label>
+                        <textarea class="textarea-edit-item" type="text" name="description" placeholder="popis..."
                                   cols="30" rows="5"><?php echo $itemInfo['description']; ?></textarea>
-
-                        <label for="">Cena: </label>
-                        <input type="number" step="any" pattern="\d*" maxlength="4" name="price" required
+                    </div>
+                    <div class="input-field-edit-item">
+                        <label class="label-edit-item" for="price">Cena: </label>
+                        <input class="input-edit-item" type="number" step="any" pattern="\d*" maxlength="4" name="price"
+                               required
                                placeholder="cena..." value="<?php echo $itemInfo['price']; ?>">
+                    </div>
+                    <div class="input-field-edit-item">
+                        <label class="label-edit-item" for="item-img">Obrázok: </label>
+                        <input class="input-edit-item" type="file" name="item-img" value="<?php echo $itemInfo['image_name']; ?>">
+                    </div>
+                    <input type="hidden" name="id" value="<?php echo $itemInfo['id']; ?>">
+                    <input type="hidden" name="old_img" value="<?php echo $itemInfo['image_name']; ?>">
+                    <div class="input-field-edit-item">
+                        <input class="button-edit-item" type="submit"
+                               name="btn-edit" value="Zmeniť">
+                    </div>
+                </form>
 
-                        <label for="">Obrázok: </label>
-                        <input type="file" name="item-img">
-
-                        <input type="hidden" name="id" value="<?php echo $itemInfo['id'];?>">
-                        <input type="hidden" name="old_img" value="<?php echo $itemInfo['image_name'];?>">
-
-                        <input type="submit"
-                               name="btn-edit">
-                    </form>
-                </div>
                 <?php
             }
         }

@@ -172,7 +172,6 @@ body footer .font-small {
 }
 #carousel-container #carousel-slide .sliderImg {
   position: absolute;
-  min-height: 200px;
 }
 #carousel-container #counter {
   text-align: right;
@@ -246,6 +245,10 @@ body footer .font-small {
 }
 
 @media only screen and (max-width: 1000px) {
+  #carousel-container #title-home {
+    font-size: 30px;
+  }
+
   .content-home .cards {
     display: flex;
     flex-direction: row;
@@ -263,6 +266,27 @@ body footer .font-small {
   }
 }
 @media only screen and (max-width: 600px) {
+  #carousel-container #title-home {
+    font-size: 25px;
+  }
+  #carousel-container #carousel-slide .sliderImg {
+    margin-left: -100px;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 100vh;
+  }
+  #carousel-container #counter {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  #carousel-container #counter #countNum {
+    display: inline-block;
+  }
+  #carousel-container #counter #countOf {
+    font-size: 15px;
+  }
+
   .content-home .cards {
     display: flex;
     flex-direction: column;
@@ -278,6 +302,11 @@ body footer .font-small {
   }
   .content-home .google-map-wrapper .google-map {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #carousel-container #title-home {
+    font-size: 18px;
   }
 }
 /*ABOUT PAGE DESIGN*/
@@ -654,38 +683,179 @@ body footer .font-small {
   margin: 20px 0px;
   background-color: #fb8500;
   color: black;
-  padding: 10px 20px;
+  padding: 20px 20px;
   width: 50%;
 }
 .container-admin-eshop .item-admin-eshop {
   display: flex;
   flex-direction: row;
+  margin: 30px 0px;
+  padding: 30px 30px;
+  border-bottom: 1px solid gray;
+}
+.container-admin-eshop .item-admin-eshop .img-admin-eshop {
+  flex: 30%;
+  padding-right: 30px;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop {
+  flex: 70%;
+  line-height: 25px;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .title-admin-eshop {
+  font-size: 35px;
+  padding-bottom: 15px;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .description-admin-eshop {
+  font-size: 25px;
+  padding-bottom: 15px;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .price-admin-eshop {
+  padding-bottom: 10px;
+  font-size: 25px;
+  color: black;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .options-admin-eshop {
+  font-size: 25px;
 }
 .container-admin-eshop .item-admin-eshop .info-admin-eshop .options-admin-eshop .edit {
+  padding-right: 10px;
   color: #2974CB;
+  transition: color 0.1s ease-in-out;
+}
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .options-admin-eshop .edit:hover {
+  color: #1a4a82;
+  transition: color 0.1s ease-in-out;
 }
 .container-admin-eshop .item-admin-eshop .info-admin-eshop .options-admin-eshop .delete {
   color: red;
+  transition: color 0.1s ease-in-out;
 }
-@media only screen and (max-width: 850px) {
-  .container-admin-eshop .option-add-admin-eshop {
-    width: 262px;
-    font-size: 25px;
-    border-radius: 5px;
-    padding: 10px 20px;
-    background-color: #2974CB;
-    transition: background-color 0.2s ease-in-out;
-  }
-  .container-admin-eshop .option-add-admin-eshop:hover {
-    background-color: #1e5494;
-    transition: background-color 0.2s ease-in-out;
-  }
+.container-admin-eshop .item-admin-eshop .info-admin-eshop .options-admin-eshop .delete:hover {
+  color: #a20101;
+  transition: color 0.1s ease-in-out;
+}
+.container-admin-eshop .warning-admin-eshop {
+  text-align: center;
+}
+@media only screen and (max-width: 1000px) {
   .container-admin-eshop .option-add-admin-eshop a {
     color: white;
+  }
+  .container-admin-eshop .item-admin-eshop {
+    display: flex;
+    flex-direction: column;
+  }
+  .container-admin-eshop .item-admin-eshop .img-admin-eshop {
+    flex: 30%;
+    padding-right: 0px;
+    padding-bottom: 30px;
   }
   .container-admin-eshop .session-display-admin-eshop {
     width: 100%;
   }
+}
+.form-add-item {
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px #6a6a6a;
+}
+.form-add-item .input-field-add-item {
+  padding: 20px;
+  position: relative;
+}
+.form-add-item .input-field-add-item .label-add-item {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+.form-add-item .input-field-add-item .textarea-add-item {
+  outline: none;
+  color: #484848;
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+.form-add-item .input-field-add-item .input-add-item {
+  outline: none;
+  width: 100%;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #484848;
+}
+.form-add-item .input-field-add-item .button-add-item {
+  font-size: 15px;
+  text-shadow: 1px 1px 10px #000;
+  border-radius: 5px;
+  padding: 10px 40px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  background-color: forestgreen;
+  transition: background-color 0.2s ease-in-out;
+}
+.form-add-item .input-field-add-item .button-add-item:hover {
+  background-color: #165b16;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-edit-item {
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px #6a6a6a;
+}
+.form-edit-item .input-field-edit-item {
+  padding: 20px;
+  position: relative;
+}
+.form-edit-item .input-field-edit-item .label-edit-item {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+.form-edit-item .input-field-edit-item .textarea-edit-item {
+  outline: none;
+  color: #484848;
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+.form-edit-item .input-field-edit-item .input-edit-item {
+  outline: none;
+  width: 100%;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #484848;
+}
+.form-edit-item .input-field-edit-item .button-edit-item {
+  font-size: 15px;
+  text-shadow: 1px 1px 10px #000;
+  border-radius: 5px;
+  padding: 10px 40px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  background-color: forestgreen;
+  transition: background-color 0.2s ease-in-out;
+}
+.form-edit-item .input-field-edit-item .button-edit-item:hover {
+  background-color: #165b16;
+  transition: background-color 0.2s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */
