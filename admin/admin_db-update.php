@@ -1,5 +1,5 @@
 <?php include_once "_admin-partials/admin_header.php";
-if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
+if (isset($_SESSION['user_email'])) {
 
     if (isset($_POST['btn-edit'])) {
         if (isset($_FILES['item-img'])) {
@@ -7,7 +7,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
             $price = $_POST['price'];
-            if ($price<=0){
+            if ($price<=0 || $price>=99999999){
                 $_SESSION['item-added'] = "Prvok nebol upravený, zle zadaná cena!";
                 header("Location:admin_e-shop.php");
                 die();

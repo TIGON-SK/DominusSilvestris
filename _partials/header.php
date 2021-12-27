@@ -23,8 +23,13 @@
 <!-- navigation -->
 
   <header class="header">
+      <a class="skip-nav-link" href="#main">
+          Skip navigation
+      </a>
         <nav class="navbar">
-            <a href="./index.php" class="nav-logo"> <img src="./assets/img/logo-dark2.png" alt="logo firmy"></a>
+            <a href="./index.php" class="nav-logo">
+                <img class="logo-img" src="./assets/img/logo-ihlicnany.png" alt="logo firmy">
+            </a>
             <ul class="nav-menu">
                 <li class="nav-item">
                      <a href="./index.php">Domov</a>

@@ -13,7 +13,6 @@
             b = false;
         } else {
             b = true;
-
             counterElement.fadeIn(2000).text(counter);
             counterElement.fadeOut(2000);
             counter++;

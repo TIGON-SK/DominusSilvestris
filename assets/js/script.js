@@ -13,7 +13,6 @@ $(function(){
             let height = carouselImg.clientHeight;
             carouselContainer.style.height = (height) + "px";
             carouselSlide.style.height = (height) + "px";
-            console.log("?");
         }
         window.onresize = function () {
             let carouselContainer = document.getElementById("carousel-container");
@@ -37,9 +36,20 @@ $(function(){
             }else{
                 sessionHandle(sessionMessageDivAdmin,sessionMessageAdmin);
             }
-
         }
     }
+    if(sectionOnPage.is('.adminAbout')) {
+        window.onload = function () {
+            console.log(`About`);
+        let sessionMessageDiv = document.querySelector('.session-display-admin-about');
+        let sessionMessage = document.querySelector('.session-message-admin-about');
+        console.log(sessionMessageDiv);
+            console.log(sessionMessage);
+        if (sessionMessageDiv && sessionMessage) {
+            sessionHandle(sessionMessageDiv, sessionMessage);
+        }}
+    }
+
     function sessionHandle(sessionMessageDiv,sessionMessage){
 
         if (sessionMessage.textContent!==""){

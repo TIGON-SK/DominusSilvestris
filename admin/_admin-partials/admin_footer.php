@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
+<?php if (isset($_SESSION['user_email'])) { ?>
 </main>
 <footer>
     <!-- Copyright -->
@@ -12,10 +12,11 @@
 </footer>
 <!--Jquery a moj javascript-->
 
-<script src="../assets/js/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/slider.js"></script>
 <script src="../assets/js/nav.js"></script>
+<script src="../assets/js/textCountAnimation.js"></script>
 
 </body>
 </html>

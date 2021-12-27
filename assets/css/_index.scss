@@ -70,7 +70,7 @@
       display: grid;
       grid-template-areas: "image" "text";
       text-align: center;
-      box-shadow: 3px 3px 10px black;
+      -webkit-box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
       border-radius: 15px;
       height: 320px;
       width: 25%;

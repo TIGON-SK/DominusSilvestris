@@ -1,5 +1,5 @@
 <?php include_once "_admin-partials/admin_header.php";
-if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
+if (isset($_SESSION['user_email'])) {
 
     if (isset($_POST['submit']) && isset($_POST['text'])) {
         $text = $_POST['text'];
@@ -13,7 +13,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
 
             if ($img_size != 0 && $error_value == 0) {
                 if ($img_size > MAX_SIZE) {
-                    $_SESSION['error_uploading'] =  "<div>Súbor je príliš veľký!</div>";
+                    $_SESSION['error_uploading'] =  "Súbor je príliš veľký!";
                     header("Location:admin_about.php");
                     die();
                 } else {
@@ -37,22 +37,22 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                                 $query3 = $conn->prepare("DELETE FROM tbl_frontend WHERE 1+1=2");
                                 $query3->execute();
                                 $query->execute();
-                                $_SESSION['error_uploading'] = "<div>Prvok bol úspešne pridaný.</div>";
+                                $_SESSION['error_uploading'] = "Prvok bol úspešne pridaný.";
                                 header("Location:admin_about.php");
                                 die();
                             } else {
-                                $_SESSION['error_uploading'] =  "<div>Prvok nebol pridaný!</div>";
+                                $_SESSION['error_uploading'] =  "Prvok nebol pridaný!";
                                 header("Location:admin_about.php");
                                 die();
                             }
 
                         } else {
-                            $_SESSION['error_uploading'] =  "<div>Nastala chyba pri nahrávaní súboru, skúste to znova!</div>";
+                            $_SESSION['error_uploading'] =  "Nastala chyba pri nahrávaní súboru, skúste to znova!";
                             header("Location:admin_about.php");
                             die();
                         }
                     } else {
-                        $_SESSION['error_uploading'] =  "<div>Nemôžete nahrať tento typ súboru!</div>";
+                        $_SESSION['error_uploading'] =  "Nemôžete nahrať tento typ súboru!";
                         header("Location:admin_about.php");
                         die();
                     }
@@ -68,15 +68,16 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                     $query3 = $conn->prepare("DELETE FROM tbl_frontend WHERE 1+1=2");
                     $query3->execute();
                     $query->execute();
-                    $_SESSION['error_uploading'] =  "<div>Prvok bol úspešne pridaný.</div>";
+                    $_SESSION['error_uploading'] =  "Prvok bol úspešne pridaný.";
                     header("Location:admin_about.php");
                     die();
                 } else {
-                    $_SESSION['error_uploading'] =  "<div>Prvok nebol pridaný!</div>";
+                    $_SESSION['error_uploading'] =  "Prvok nebol pridaný!";
                     header("Location:admin_about.php");
                     die();
                 }
             } else {
+                /** @var string $conn */
                 $query3 = $conn->prepare("DELETE FROM tbl_frontend WHERE 1+1=2");
                 $query3->execute();
                 $nullValue = "";
@@ -90,10 +91,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
                 die();
             }
         } else {
+            /** @var string $conn */
             $query3 = $conn->prepare("DELETE FROM tbl_frontend WHERE 1+1=2");
             $query3->execute();
-            /** @var str $conn */
-            /** @var str $conn */
             $nullValue = "";
             $query = $conn->prepare("INSERT INTO tbl_frontend (textAbout, image_name) VALUES (:textAbout,:image_name);");
             $query->bindParam("textAbout", $text, PDO::PARAM_STR);
@@ -107,7 +107,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
             die();
         }
     } else {
-        $_SESSION['error_uploading'] =  "<div>Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!</div>";
+        $_SESSION['error_uploading'] =  "Nastala chyba, skúste skontrolovať veľkosť obrázka!";
         header("Location:admin_about.php");
         die();
     }

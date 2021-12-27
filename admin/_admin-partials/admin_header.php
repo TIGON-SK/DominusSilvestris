@@ -1,5 +1,5 @@
 <?php include_once "../_inc/config.php";
-if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
+ if (isset($_SESSION['user_email'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +23,12 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
 <body>
 <!-- navigation -->
  <header class="header">
+     <a class="skip-nav-link" href="#main-admin">
+         Skip navigation
+     </a>
         <nav class="navbar">
             <a href="admin_index.php" class="nav-logo">
-            <img src="../assets/img/logo-dark2.png" alt="logo firmy">
+            <img class="logo-img" src="../assets/img/logo-ihlicnany.png" alt="logo firmy">
             </a>
             <ul class="nav-menu">
                 <li class="nav-item">

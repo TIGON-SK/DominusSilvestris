@@ -1,0 +1,11 @@
+@keyframes blink {
+  0% {
+    stroke-width: $thick;
+  }
+  10% {
+    stroke-width: $bounce;
+  }
+  100% {
+    stroke-width: $thick;
+  }
+}

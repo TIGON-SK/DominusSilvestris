@@ -1,6 +1,6 @@
 @mixin formItemMixin{
   border-radius: 5px;
-  box-shadow: 2px 2px 15px #6a6a6a;
+  -webkit-box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
 }
 @mixin labelOfItemMixin{
   display: block;

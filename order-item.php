@@ -36,25 +36,25 @@ if (isset($_GET['id'])) {
     <form class="form-order-item" action="" method="post">
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_name">Vaše meno</label>
-            <input class="input-order-item" type="text" name="customer_name" required>
+            <input class="input-order-item" type="text" name="customer_name" maxlength="200" required>
         </div>
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_email">Váš email</label>
-            <input class="input-order-item" type="email" name="customer_email" required>
+            <input class="input-order-item" type="email" name="customer_email" maxlength="200" required>
         </div>
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_address">Vaša adresa</label>
-            <input class="input-order-item" type="text" name="customer_address" required>
+            <input class="input-order-item" type="text" name="customer_address"  maxlength="200" required>
         </div>
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_phone">Vaše tel. číslo</label>
             <input class="input-order-item" type="tel" placeholder="0123-456-789" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
-                   name="customer_phone"
+                   name="customer_phone"  maxlength="12"
                    required>
         </div>
         <div class="input-field-order-item">
             <label class="label-order-item" for="qty">Množstvo</label>
-            <input class="input-order-item" type="number" name="qty" step="1" required>
+            <input class="input-order-item" type="number" name="qty" step="1"  maxlength="13" required>
         </div>
         <div class="input-field-order-item">
             <input class="button-order-item" type="submit" name="submit" value="Objednať">

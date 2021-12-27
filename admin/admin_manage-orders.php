@@ -1,6 +1,6 @@
 <?php include_once "_admin-partials/admin_header.php";
 //status: objednane, naceste, dorucene, vymazat
-if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) { ?>
+if (isset($_SESSION['user_email'])) { ?>
     <div>
         <div>
             <div>

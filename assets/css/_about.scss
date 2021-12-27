@@ -1,31 +1,41 @@
 /*ABOUT PAGE DESIGN*/
+.session-display-admin-about {
+  display: none;
+  margin: 20px 0px;
+  background-color: #fb8500;
+  color: black;
+  padding: 20px 20px;
+  width: 50%;
+}
+
 .about-wrapper {
   width: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  height: 65vh;
 
   .about-img-wrapper {
-    flex: 50%;
+    flex: 30%;
+    margin-right: 40px;
 
     .about-img {
-      margin-right: 20px;
       width: 100%;
     }
   }
 
   .content-wrapper-about {
-    flex: 50%;
+    flex: 70%;
     height: 400px;
+
     .about-content {
       width: 100%;
       font-size: 20px;
       letter-spacing: 1px;
       line-height: 30px;
 
-
       .label-for-img-about-admin {
-display: block;
+        display: block;
         padding: 10px 0px;
       }
 
@@ -39,16 +49,59 @@ display: block;
         padding: 5px 0px;
       }
 
-      .textarea-about-admin {
-        padding: 5px;
-        resize: none;
-        width: 100%;
-        height: 30vh;
-        outline: none;
-        border-radius: 5px;
-        font-size: 15px;
-        font-family: "Montserrat", sans-serif;
-        color: $textColor;
+      .wrapperTextArea {
+        height: 40vh;
+        position: relative;
+        margin-bottom: 20px;
+
+        .textarea-about-admin {
+          padding: 5px;
+          padding-bottom: 20px;
+          resize: none;
+          width: 100%;
+          height: 100%;
+          outline: none;
+          border-radius: 5px;
+          font-size: 15px;
+          font-family: "Montserrat", sans-serif;
+          color: $textColor;
+        }
+
+        .counter {
+          font-weight: bold;
+          position: absolute;
+          bottom: 20px;
+          right: 60px;
+          font-size: 20px;
+        }
+
+        .animatedCircleSvg {
+          position: absolute;
+          bottom: 5px;
+          right: 5px;
+          transform: rotate(-90deg);
+
+          circle {
+            fill: none;
+            stroke-width: 3px;
+
+            .underlay {
+              stroke: #ddd;
+            }
+
+            .progress {
+              stroke: #0798ff;
+              stroke-width: $normal;
+              transition: stroke-width .2s ease-in-out;
+            }
+          }
+
+          .tragedy {
+            stroke-width: $thick;
+            animation: blink .4s ease-out;
+          }
+
+        }
       }
 
       .btn-admin-about {
@@ -60,7 +113,6 @@ display: block;
       }
     }
   }
-
 }
 
 @media only screen and (max-width: 1000px) {
@@ -68,7 +120,7 @@ display: block;
   .about-wrapper {
     display: flex;
     flex-direction: column;
-
+    height: auto;
     .about-img-wrapper {
       margin-right: 0px;
       margin-bottom: 50px;
@@ -85,4 +137,30 @@ display: block;
     }
 
   }
+}
+@media only screen and (max-width: 500px) {
+
+.about-wrapper {
+  .content-wrapper-about {
+    .about-content {
+      .wrapperTextArea {
+        height: 80vh;
+
+      }
+    }
+  }
+}
+}
+
+.good {
+  stroke: #0798ff;
+}
+
+.warning {
+  stroke: orange;
+}
+
+.danger {
+  stroke-width: $thick;
+  stroke: #FF3939FF;
 }

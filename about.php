@@ -20,11 +20,12 @@
     <div class="about-img-wrapper">
             <img class="about-img" src="./assets/img/frontend_imgs/<?php echo($image);?>" alt="obrazok-o firme">
     </div>
-    <div class="about-content">
+    <div class="content-wrapper-about">
+        <div class="about-content">
         <?php
         echo"<p>$textAbout</p>";
         ?>
-
+        </div>
     </div>
 
 </div>

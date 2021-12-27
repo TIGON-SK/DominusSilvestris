@@ -19,15 +19,17 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_username'])) { ?>
             <div class="input-field">
                 <input type="email"
                        name="email"
+                       maxlength="255"
                        placeholder="Emailová adresa"
                        value="<?php if (isset($_GET['email'])) {
                            echo(htmlspecialchars
                            ($_GET['email']));
-                       } ?>" required>
+                       } ?>"
+                       required>
             </div>
             <div class="input-field password-field">
                 <input class="pswrd" type="password"
-                       name="password" placeholder="heslo" required>
+                       name="password" maxlength="255" placeholder="heslo" required>
                 <span class="show"><i class="fas fa-eye"></i></span>
 
             </div>

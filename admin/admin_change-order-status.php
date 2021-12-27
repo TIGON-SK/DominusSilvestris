@@ -1,5 +1,5 @@
 <?php include_once "_admin-partials/admin_header.php";
-if (isset($_SESSION['user_email']) && isset($_SESSION['user_username'])) {
+if (isset($_SESSION['user_email'])) { 
     ?>
     <div>
         <?php

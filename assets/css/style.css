@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@keyframes blink {
+  0% {
+    stroke-width: 6px;
+  }
+  10% {
+    stroke-width: 12px;
+  }
+  100% {
+    stroke-width: 6px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +21,26 @@ a {
 }
 
 /*MY*/
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-nav-link {
+  background-color: rgba(34, 139, 34, 0.5);
+  color: white;
+  padding: 10px 20px;
+  position: absolute;
+  left: 0px;
+  border: none;
+  transform: translateY(-120%);
+}
+.skip-nav-link:focus {
+  transform: translateY(0%);
+}
+.skip-nav-link:hover {
+  color: white;
+}
+
 body {
   margin: 0 auto;
   width: 80%;
@@ -40,12 +71,12 @@ body footer .font-small {
 }
 
 .slideDown {
-  margin-top: 390px;
+  margin-top: 440px;
   transition: margin-top 0.2s linear;
 }
 
 .slideDown-admin {
-  margin-top: 500px;
+  margin-top: 550px;
   transition: margin-top 0.2s linear;
 }
 
@@ -66,7 +97,10 @@ body footer .font-small {
   padding: 1rem 1.5rem;
 }
 .header .navbar .nav-logo {
-  font-size: 2.1rem;
+  height: 100px;
+}
+.header .navbar .nav-logo .logo-img {
+  height: 100%;
 }
 .header .navbar .nav-menu {
   display: flex;
@@ -103,14 +137,14 @@ body footer .font-small {
   .nav-menu {
     position: absolute;
     left: -100%;
-    top: 5rem;
+    top: 8rem;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   }
 
   .nav-menu.active {
@@ -211,7 +245,7 @@ body footer .font-small {
   display: grid;
   grid-template-areas: "image" "text";
   text-align: center;
-  box-shadow: 3px 3px 10px black;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   border-radius: 15px;
   height: 320px;
   width: 25%;
@@ -310,21 +344,31 @@ body footer .font-small {
   }
 }
 /*ABOUT PAGE DESIGN*/
+.session-display-admin-about {
+  display: none;
+  margin: 20px 0px;
+  background-color: #fb8500;
+  color: black;
+  padding: 20px 20px;
+  width: 50%;
+}
+
 .about-wrapper {
   width: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  height: 65vh;
 }
 .about-wrapper .about-img-wrapper {
-  flex: 50%;
+  flex: 30%;
+  margin-right: 40px;
 }
 .about-wrapper .about-img-wrapper .about-img {
-  margin-right: 20px;
   width: 100%;
 }
 .about-wrapper .content-wrapper-about {
-  flex: 50%;
+  flex: 70%;
   height: 400px;
 }
 .about-wrapper .content-wrapper-about .about-content {
@@ -345,16 +389,51 @@ body footer .font-small {
   display: block;
   padding: 5px 0px;
 }
-.about-wrapper .content-wrapper-about .about-content .textarea-about-admin {
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea {
+  height: 40vh;
+  position: relative;
+  margin-bottom: 20px;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .textarea-about-admin {
   padding: 5px;
+  padding-bottom: 20px;
   resize: none;
   width: 100%;
-  height: 30vh;
+  height: 100%;
   outline: none;
   border-radius: 5px;
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
   color: #484848;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .counter {
+  font-weight: bold;
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  font-size: 20px;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .animatedCircleSvg {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  transform: rotate(-90deg);
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .animatedCircleSvg circle {
+  fill: none;
+  stroke-width: 3px;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .animatedCircleSvg circle .underlay {
+  stroke: #ddd;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .animatedCircleSvg circle .progress {
+  stroke: #0798ff;
+  stroke-width: 5px;
+  transition: stroke-width 0.2s ease-in-out;
+}
+.about-wrapper .content-wrapper-about .about-content .wrapperTextArea .animatedCircleSvg .tragedy {
+  stroke-width: 6px;
+  animation: blink 0.4s ease-out;
 }
 .about-wrapper .content-wrapper-about .about-content .btn-admin-about {
   padding: 10px 20px;
@@ -376,6 +455,7 @@ body footer .font-small {
   .about-wrapper {
     display: flex;
     flex-direction: column;
+    height: auto;
   }
   .about-wrapper .about-img-wrapper {
     margin-right: 0px;
@@ -385,6 +465,24 @@ body footer .font-small {
     width: 100%;
   }
 }
+@media only screen and (max-width: 500px) {
+  .about-wrapper .content-wrapper-about .about-content .wrapperTextArea {
+    height: 80vh;
+  }
+}
+.good {
+  stroke: #0798ff;
+}
+
+.warning {
+  stroke: orange;
+}
+
+.danger {
+  stroke-width: 6px;
+  stroke: #FF3939FF;
+}
+
 .order-state-div {
   display: none;
   color: white;
@@ -407,10 +505,7 @@ body footer .font-small {
 .shop .shop-item .store-img-wrapper .shop-item-img {
   border-radius: 10px;
   width: 90%;
-  box-shadow: 5px 5px 5px #ccc;
-  -moz-box-shadow: 5px 5px 5px #ccc;
-  -webkit-box-shadow: 5px 5px 5px #ccc;
-  -khtml-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
 .shop .shop-item .store-item-info {
   flex: 70%;
@@ -469,9 +564,8 @@ body footer .font-small {
   }
 }
 .container {
-  border: 1px solid silver;
   border-radius: 10px;
-  box-shadow: 5px 10px 18px #888888;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   margin: 0 auto;
   width: 50%;
   min-height: 500px;
@@ -569,7 +663,7 @@ body footer .font-small {
   flex: 40%;
   margin-left: 50px;
   border-radius: 10px;
-  box-shadow: 2px 2px 15px #000;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
 .container-order-item .form-order-item .input-field-order-item {
   padding: 20px;
@@ -756,7 +850,7 @@ body footer .font-small {
 }
 .form-add-item {
   border-radius: 5px;
-  box-shadow: 2px 2px 15px #6a6a6a;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
 .form-add-item .input-field-add-item {
   padding: 20px;
@@ -808,7 +902,7 @@ body footer .font-small {
 
 .form-edit-item {
   border-radius: 5px;
-  box-shadow: 2px 2px 15px #6a6a6a;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
 .form-edit-item .input-field-edit-item {
   padding: 20px;
