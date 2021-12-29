@@ -14,7 +14,7 @@ if (isset($_SESSION['user_email'])) {
             if ($img_size != 0 && $error_value == 0) {
                 if ($img_size > MAX_SIZE) {
                     $_SESSION['error_uploading'] =  "Súbor je príliš veľký!";
-                    header("Location:admin_about.php");
+                    header("Location:admin_about");
                     die();
                 } else {
                     //Prípona súboru
@@ -38,22 +38,22 @@ if (isset($_SESSION['user_email'])) {
                                 $query3->execute();
                                 $query->execute();
                                 $_SESSION['error_uploading'] = "Prvok bol úspešne pridaný.";
-                                header("Location:admin_about.php");
+                                header("Location:admin_about");
                                 die();
                             } else {
                                 $_SESSION['error_uploading'] =  "Prvok nebol pridaný!";
-                                header("Location:admin_about.php");
+                                header("Location:admin_about");
                                 die();
                             }
 
                         } else {
                             $_SESSION['error_uploading'] =  "Nastala chyba pri nahrávaní súboru, skúste to znova!";
-                            header("Location:admin_about.php");
+                            header("Location:admin_about");
                             die();
                         }
                     } else {
                         $_SESSION['error_uploading'] =  "Nemôžete nahrať tento typ súboru!";
-                        header("Location:admin_about.php");
+                        header("Location:admin_about");
                         die();
                     }
                 }
@@ -69,11 +69,11 @@ if (isset($_SESSION['user_email'])) {
                     $query3->execute();
                     $query->execute();
                     $_SESSION['error_uploading'] =  "Prvok bol úspešne pridaný.";
-                    header("Location:admin_about.php");
+                    header("Location:admin_about");
                     die();
                 } else {
                     $_SESSION['error_uploading'] =  "Prvok nebol pridaný!";
-                    header("Location:admin_about.php");
+                    header("Location:admin_about");
                     die();
                 }
             } else {
@@ -87,7 +87,7 @@ if (isset($_SESSION['user_email'])) {
                 $query->bindParam("textAbout", $text, PDO::PARAM_STR);
                 $query->bindParam("image_name", $nullValue, PDO::PARAM_STR);
                 $result = $query->execute();
-                header("Location:admin_about.php");
+                header("Location:admin_about");
                 die();
             }
         } else {
@@ -99,19 +99,19 @@ if (isset($_SESSION['user_email'])) {
             $query->bindParam("textAbout", $text, PDO::PARAM_STR);
             $query->bindParam("image_name", $nullValue, PDO::PARAM_STR);
             $result = $query->execute();
-            header("Location:admin_about.php");
+            header("Location:admin_about");
             die();
         }
     }else{
-            header("Location:admin_about.php");
+            header("Location:admin_about");
             die();
         }
     } else {
         $_SESSION['error_uploading'] =  "Nastala chyba, skúste skontrolovať veľkosť obrázka!";
-        header("Location:admin_about.php");
+        header("Location:admin_about");
         die();
     }
 } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

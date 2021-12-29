@@ -20,7 +20,7 @@
     if ($count > 0) {
         while ($row = $query->fetch()) {
             ?>
-            <a class="shop-item" href="order-item.php?id=<?php echo($row['id']);?>">
+            <a class="shop-item" href="order-item?id=<?php echo($row['id']);?>">
                 <div class="store-img-wrapper">
                 <img class="shop-item-img" src="admin/admin_img-uploads/<?php echo $row['image_name']; ?>" alt="obrazok produktu">
                 </div>

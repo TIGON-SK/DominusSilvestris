@@ -77,7 +77,7 @@ if (isset($_SESSION['user_email'])) { ?>
     </section>
     <?php
 } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 }
 include_once "_admin-partials/admin_footer.php"; ?>

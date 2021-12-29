@@ -3,12 +3,12 @@
 session_start();
 
 //php errors
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 //Create Constants
-define('BASEEURL', 'http://localhost:81/Web/DominusSilvestris/');
+define('BASEURL', 'http://localhost:81/Web/DominusSilvestris/');
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
@@ -35,5 +35,10 @@ if ($connection->connect_error) {
 else{
     echo "Connected successfully";
 }*/
-
+function show_404()
+{
+    header('HTTP/1.0 404 Not Found', true, 404);
+    include_once("errors/404.php");
+    die();
+}
 ?>

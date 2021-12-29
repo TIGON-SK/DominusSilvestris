@@ -787,9 +787,12 @@ body footer .font-small {
   padding: 30px 30px;
   border-bottom: 1px solid gray;
 }
-.container-admin-eshop .item-admin-eshop .img-admin-eshop {
+.container-admin-eshop .item-admin-eshop .img-admin-eshop-wrapper {
   flex: 30%;
   padding-right: 30px;
+}
+.container-admin-eshop .item-admin-eshop .img-admin-eshop-wrapper .img-admin-eshop {
+  width: 100%;
 }
 .container-admin-eshop .item-admin-eshop .info-admin-eshop {
   flex: 70%;

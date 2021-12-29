@@ -5,9 +5,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
     $hash = '$2a$12$w0j04cB/5FtwUDswPdb31ebVLSNZv.xtBR64pG/uk.yBg5.NWksXm';
     if (empty($email)) {
-        header("Location: login.php?error=Zadajte emailovú adresu");
+        header("Location: login?error=Zadajte emailovú adresu");
     } else if (empty($password)) {
-        header("Location: login.php?error=Zadajte heslo&email=$email");
+        header("Location: login?error=Zadajte heslo&email=$email");
     } else {
         /** @var str $conn */
         $query = $conn->prepare("SELECT * FROM tbl_admin WHERE email=?");
@@ -25,19 +25,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['user_email'] = $user_email;
                     $_SESSION['user_username'] = $username;
-                    header("Location: admin/admin_index.php");
+                    header("Location: admin/admin_index");
                     die();
 
                 } else {
-                    header("Location: login.php?error=Nesprávny email alebo heslo&email=$email");
+                    header("Location: login?error=Nesprávny email alebo heslo&email=$email");
                     die();
                 }
             } else {
-                header("Location: login.php?error=Nesprávny email alebo heslo&email=$email");
+                header("Location: login?error=Nesprávny email alebo heslo&email=$email");
                 die();
             }
         } else {
-            header("Location: login.php?error=Nesprávny email alebo heslo&email=$email");
+            header("Location: login?error=Nesprávny email alebo heslo&email=$email");
             die();
         }
     }

@@ -30,16 +30,23 @@
     display: flex;
     flex-direction: row;
     margin: 30px 0px;
-    padding:30px 30px;
+    padding: 30px 30px;
     border-bottom: 1px solid gray;
-    .img-admin-eshop {
+
+    .img-admin-eshop-wrapper {
       flex: 30%;
-      padding-right:30px;
+      padding-right: 30px;
+
+      .img-admin-eshop {
+        width: 100%;
+      }
     }
+
 
     .info-admin-eshop {
       flex: 70%;
       line-height: 25px;
+
       .title-admin-eshop {
         font-size: 35px;
         padding-bottom: 15px;
@@ -47,7 +54,7 @@
 
       .description-admin-eshop {
         font-size: 25px;
-        padding-bottom:15px;
+        padding-bottom: 15px;
       }
 
       .price-admin-eshop {
@@ -58,11 +65,13 @@
 
       .options-admin-eshop {
         font-size: 25px;
+
         .edit {
           padding-right: 10px;
           color: $secondaryColor;
           transition: color .1s ease-in-out;
-          &:hover{
+
+          &:hover {
             color: #1a4a82;
             transition: color .1s ease-in-out;
           }
@@ -71,8 +80,9 @@
         .delete {
           color: red;
           transition: color .1s ease-in-out;
-          &:hover{
-          color: #a20101;
+
+          &:hover {
+            color: #a20101;
             transition: color .1s ease-in-out;
           }
         }
@@ -83,6 +93,7 @@
 
   .warning-admin-eshop {
     text-align: center;
+
     .noProducts-admin-eshop {
 
     }
@@ -96,12 +107,14 @@
         color: white;
       }
     }
+
     .item-admin-eshop {
       display: flex;
       flex-direction: column;
+
       .img-admin-eshop {
         flex: 30%;
-        padding-right:0px;
+        padding-right: 0px;
         padding-bottom: 30px;
       }
     }

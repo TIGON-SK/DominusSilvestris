@@ -32,19 +32,19 @@
             </a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                      <a href="admin_index.php">Domov</a>
+                      <a href="admin_index">Domov</a>
                 </li>
                 <li class="nav-item">
-                     <a href="admin_about.php">O firme</a>
+                     <a href="admin_about">O firme</a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin_manage-orders.php">Objednávky</a>
+                    <a href="admin_manage-orders">Objednávky</a>
                 </li>
                  <li class="nav-item">
-                    <a href="admin_e-shop.php">Obchod</a>
+                    <a href="admin_e-shop">Obchod</a>
                  </li>
                 <li class="nav-item">
-                    <a href="../logout.php">Odhlásenie <i class="fas fa-sign-out-alt"></i></a>
+                    <a href="../logout">Odhlásenie <i class="fas fa-sign-out-alt"></i></a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -56,6 +56,6 @@
     </header>
 <main id="main-admin" class="slideUp-admin">
 <?php } else {
-    header('Location: ../login.php?error=Falied to log in');
+    header('Location: ../login?error=Falied to log in');
     die();
 } ?>

@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_username'])) { ?>
 
     <div class="container">
         <h1 class="login-title">Prihlásenie</h1>
-        <form class="login-form" action="auth.php" method="post">
+        <form class="login-form" action="auth" method="post">
 
             <? if (isset($_GET['error'])) { ?>
                 <div>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_email']) && !isset($_SESSION['user_username'])) { ?>
         <script src="assets/js/showPassword.js"></script>
     </div>
 <?php } else {
-    header('Location: admin/admin_index.php');
+    header('Location: admin/admin_index');
     die();
 } ?>
 <?php include_once "_partials/footer.php"; ?>

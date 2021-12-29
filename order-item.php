@@ -1,16 +1,13 @@
 <?php
 
-use Cassandra\Date;
-
 include_once "_partials/header.php"; ?>
 
-
 <?php
+$title = "";
+$price = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $title = "";
     $imgName = "";
-    $price = "";
     /** @var str $conn */
     $query1 = $conn->prepare("SELECT * FROM tbl_item WHERE id=:id");
     $query1->bindParam("id", $id, PDO::PARAM_INT);
@@ -33,7 +30,7 @@ if (isset($_GET['id'])) {
     }
 }
 ?>
-    <form class="form-order-item" action="" method="post">
+    <form class="form-order-item" action="make-order" method="post">
         <div class="input-field-order-item">
             <label class="label-order-item" for="customer_name">Vaše meno</label>
             <input class="input-order-item" type="text" name="customer_name" maxlength="200" required>
@@ -56,54 +53,12 @@ if (isset($_GET['id'])) {
             <label class="label-order-item" for="qty">Množstvo</label>
             <input class="input-order-item" type="number" name="qty" step="1"  maxlength="13" required>
         </div>
+        <input type="hidden" name="title" value="<?php echo $title; ?>">
+        <input type="hidden" name="price" value="<?php echo $price; ?>">
         <div class="input-field-order-item">
             <input class="button-order-item" type="submit" name="submit" value="Objednať">
         </div>
     </form>
     </div>
-<?php
-if (isset($_POST['submit'])) {
-    $customer_name = $_POST['customer_name'];
-    $customer_email = $_POST['customer_email'];
-    $customer_phone = $_POST['customer_phone'];
-    $customer_address = $_POST['customer_address'];
-
-    $qty = $_POST['qty'];
-    if ($qty <= 0) {
-        $_SESSION['order-item'] = "Objednavka bola neúspešná (zle zadane mnozstvo)!";
-        header("Location:e-shop.php");
-        die();
-    }
-    $status = "objednané";
-    $order_date = "";
-
-    $query = $conn->prepare("INSERT INTO tbl_order 
-    (item_name,price,qty,order_date,status,customer_name,customer_email,customer_phone,customer_address) 
-     VALUE 
-    (:item_name,:price,:qty,:order_date,:status,:customer_name,:customer_email,:customer_phone,:customer_address);");
-
-    $order_date = date('Y-m-d H:i:s');
-    $query->bindParam("item_name", $title, PDO::PARAM_STR);
-    $query->bindParam("price", $price, PDO::PARAM_STR);
-    $query->bindParam("qty", $qty, PDO::PARAM_INT);
-    $query->bindParam("order_date", $order_date, PDO::PARAM_STR);
-    $query->bindParam("status", $status, PDO::PARAM_STR);
-    $query->bindParam("customer_name", $customer_name, PDO::PARAM_STR);
-    $query->bindParam("customer_email", $customer_email, PDO::PARAM_STR);
-    $query->bindParam("customer_phone", $customer_phone, PDO::PARAM_STR);
-    $query->bindParam("customer_address", $customer_address, PDO::PARAM_STR);
-    $result = $query->execute();
-    if ($result) {
-        $_SESSION['order-item'] = "Objednavka bola uspešne zaevidovaná.";
-        header("Location:e-shop.php");
-        die();
-    } else {
-        $_SESSION['order-item'] = "Objednavka bola neúspešná!";
-        header("Location:e-shop.php");
-        die();
-    }
-}
-
-?>
 
 <?php include_once "_partials/footer.php"; ?>

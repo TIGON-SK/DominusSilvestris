@@ -3,7 +3,7 @@
 <?php
 session_unset();
 session_destroy();
-header("Location: login.php?warning=Boli ste odhlásený!");
+header("Location: login?warning=Boli ste odhlásený!");
 die();
 ?>
 

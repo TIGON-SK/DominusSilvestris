@@ -27,21 +27,21 @@
           Skip navigation
       </a>
         <nav class="navbar">
-            <a href="./index.php" class="nav-logo">
+            <a href="./" class="nav-logo">
                 <img class="logo-img" src="./assets/img/logo-ihlicnany.png" alt="logo firmy">
             </a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                     <a href="./index.php">Domov</a>
+                     <a href="./">Domov</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./about.php">O firme</a>
+                    <a href="./about">O firme</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./e-shop.php">Obchod</a>
+                    <a href="./e-shop">Obchod</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./login.php">Prihlásiť sa <i class="fas fa-sign-in-alt"></i></a>
+                    <a href="./login">Prihlásiť sa <i class="fas fa-sign-in-alt"></i></a>
                 </li>
             </ul>
             <div class="hamburger">
