@@ -1,6 +1,5 @@
 <?php include_once "_admin-partials/admin_header.php";
 if (isset($_SESSION['user_email'])) {
-
     if (isset($_POST['btn-insert-into-db'])) {
         if (isset($_FILES['item-img'])) {
             $title = $_POST['title'];
@@ -8,7 +7,7 @@ if (isset($_SESSION['user_email'])) {
             $price = $_POST['price'];
             if ($price <= 0 || $price>=99999999) {
                 $_SESSION['item-added'] = "Prvok nebol pridaný, zle zadaná cena!";
-                header("Location:admin_e-shop.php");
+                header("Location:admin_e-shop");
                 die();
             }
             //img
@@ -18,9 +17,9 @@ if (isset($_SESSION['user_email'])) {
             $error_value = $_FILES['item-img']['error'];
 
             if ($img_size != 0 && $error_value == 0) {
-                if ($img_size > MAX_SIZE) {
+                if (acceptableImgSize($img_size)) {
                     $_SESSION['img-upload'] = "Súbor je príliš veľký! $img_size";
-                    header("Location:admin_add-item.php");
+                    header("Location:admin_add-item");
                     die();
                 } else {
                     //Prípona súboru
@@ -29,7 +28,7 @@ if (isset($_SESSION['user_email'])) {
                     $allowed_exs = array("png", "jpg", "jpeg");
                     if (in_array($img_ex, $allowed_exs)) {
                         $new_img_name = uniqid("img-", true) . "." . $img_ex;
-                        $img_upload_path = 'admin_img-uploads/' . $new_img_name;
+                        $img_upload_path = $_SERVER['DOCUMENT_ROOT'].'/admin/admin_img-uploads/' . $new_img_name;
 
                         if (move_uploaded_file($tmp_name, $img_upload_path)) {
                             chmod($img_upload_path, 0755);
@@ -43,56 +42,39 @@ if (isset($_SESSION['user_email'])) {
                             $result = $query->execute();
                             if ($result) {
                                 $_SESSION['item-added'] = "Prvok bol úspešne pridaný.";
-                                header("Location:admin_e-shop.php");
+                                header("Location:admin_e-shop");
                                 die();
                             } else {
                                 $_SESSION['item-added'] = "Prvok nebol pridaný!";
-                                header("Location:admin_e-shop.php");
+                                header("Location:admin_e-shop");
                                 die();
                             }
 
                         } else {
                             $_SESSION['img-upload'] = "Nastala chyba pri nahrávaní súboru, skúste to znova!";
-                            header("Location:admin_add-item.php");
+                            header("Location:admin_add-item");
                             die();
                         }
                     } else {
                         $_SESSION['img-upload'] = "Nemôžete nahrať tento typ súboru!";
-                        header("Location:admin_add-item.php");
+                        header("Location:admin_add-item");
                         die();
                     }
                 }
-            } else if ($img_size == 0 && $error_value == 0) {
-                /** @var str $conn */
-                $query = $conn->prepare("INSERT INTO tbl_item (title, description, price, image_name)
-                                            VALUES (:title,:description,:price,:image_name);");
-                $query->bindParam("title", $title, PDO::PARAM_STR);
-                $query->bindParam("description", $description, PDO::PARAM_STR);
-                $query->bindParam("price", $price, PDO::PARAM_STR);
-                $query->bindParam("image_name", $img_name, PDO::PARAM_STR);
-                $result = $query->execute();
-                if ($result) {
-                    $_SESSION['item-added'] = "Prvok bol úspešne pridaný.";
-                    header("Location:admin_e-shop.php");
-                    die();
-                } else {
-                    $_SESSION['item-added'] = "Prvok nebol pridaný!";
-                    header("Location:admin_e-shop.php");
-                    die();
-                }
+
             } else {
-                $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
-                header("Location:admin_add-item.php");
+                $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka!";
+                header("Location:admin_add-item");
                 die();
             }
         }
     } else {
         $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
-        header("Location:admin_add-item.php");
+        header("Location:admin_add-item");
         die();
     }
 } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

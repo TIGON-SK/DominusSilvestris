@@ -1,4 +1,14 @@
 <?php include_once "_admin-partials/admin_header.php";
+?>
+<section class="editItem">
+    <div class="session-display-admin">
+    <p class="session-message-admin"><?php
+        if (isset($_SESSION['img-upload'])) {
+            echo $_SESSION['img-upload'];
+            unset($_SESSION['img-upload']);
+        } ?></p>
+    </div>
+<?php
 if (isset($_SESSION['user_email'])) {
     if (isset($_GET['id'])) {
         $idOfItem = $_GET['id'];
@@ -10,7 +20,7 @@ if (isset($_SESSION['user_email'])) {
 
                 ?>
 
-                <form class="form-edit-item" action="admin_db-update.php" method="post" enctype="multipart/form-data">
+                <form class="form-edit-item" action="admin_db-update" method="post" enctype="multipart/form-data">
                     <div class="input-field-edit-item">
                         <label class="label-edit-item" for="title">Názov: </label>
                         <input class="input-edit-item" type="text" name="title" maxlength="150" required placeholder="nazov..."
@@ -44,9 +54,9 @@ if (isset($_SESSION['user_email'])) {
         }
     }
     ?>
-
+    </section>
 <?php } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

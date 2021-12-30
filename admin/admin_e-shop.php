@@ -4,11 +4,11 @@ if (isset($_SESSION['user_email'])) { ?>
     <section class="eshop">
         <div class="container-admin-eshop">
             <div class="option-add-admin-eshop">
-                <a href="admin_add-item.php">Pridať produkt <i class="fas fa-plus-circle"></i></a>
+                <a href="admin_add-item">Pridať produkt <i class="fas fa-plus-circle"></i></a>
             </div>
 
-            <div class="session-display-admin-eshop">
-                <p class="session-message-admin-eshop"><?php
+            <div class="session-display-admin">
+                <p class="session-message-admin"><?php
                     if (isset($_SESSION['remove-img'])) {
                         echo $_SESSION['remove-img'];
                         unset($_SESSION['remove-img']);
@@ -53,11 +53,11 @@ if (isset($_SESSION['user_email'])) { ?>
                             <p class="description-admin-eshop"><?php echo $row['description']; ?></p>
                             <h4 class="price-admin-eshop">Cena: <?php echo $row['price']; ?>$</h4>
                             <div class="options-admin-eshop">
-                                <a class="edit" href="admin_edit-item.php?id=<?php echo($idOfItem); ?>">
+                                <a class="edit" href="admin_edit-item?id=<?php echo($idOfItem); ?>">
                                     <i class="fas fa-edit"></i>
                                     Edit
                                 </a>
-                                <a class="delete" href="admin_delete-item.php?id=<?php echo($idOfItem); ?>">
+                                <a class="delete" href="admin_delete-item?id=<?php echo($idOfItem); ?>">
                                     <i class="fas fa-trash-alt"></i>
                                     Delete
                                 </a>
@@ -79,7 +79,7 @@ if (isset($_SESSION['user_email'])) { ?>
     </section>
 
 <?php } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

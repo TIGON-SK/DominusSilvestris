@@ -1,6 +1,6 @@
 <?php include_once "_admin-partials/admin_header.php";
+$id = "";
 if (isset($_SESSION['user_email'])) {
-
     if (isset($_POST['btn-edit'])) {
         if (isset($_FILES['item-img'])) {
             $id = $_POST['id'];
@@ -8,8 +8,8 @@ if (isset($_SESSION['user_email'])) {
             $description = $_POST['description'];
             $price = $_POST['price'];
             if ($price<=0 || $price>=99999999){
-                $_SESSION['item-added'] = "Prvok nebol upravený, zle zadaná cena!";
-                header("Location:admin_e-shop.php");
+                $_SESSION['item-edited'] = "Prvok nebol upravený, zle zadaná cena!";
+                header("Location:admin_e-shop");
                 die();
             }
             //img
@@ -19,9 +19,9 @@ if (isset($_SESSION['user_email'])) {
             $error_value = $_FILES['item-img']['error'];
 
             if ($img_size != 0 && $error_value == 0) {
-                if ($img_size > MAX_SIZE) {
+                if (acceptableImgSize($img_size)) {
                     $_SESSION['img-upload'] = "Súbor je príliš veľký!";
-                    header("Location:admin_add-item.php");
+                    header("Location:admin_edit-item?id={$id}");
                     die();
                 } else {
                     //Prípona súboru
@@ -30,7 +30,7 @@ if (isset($_SESSION['user_email'])) {
                     $allowed_exs = array("png", "jpg", "jpeg");
                     if (in_array($img_ex, $allowed_exs)) {
                         $new_img_name = uniqid("img-", true) . "." . $img_ex;
-                        $img_upload_path = 'admin_img-uploads/' . $new_img_name;
+                        $img_upload_path = $_SERVER['DOCUMENT_ROOT'].'/admin/admin_img-uploads/' . $new_img_name;
 
                         if (move_uploaded_file($tmp_name, $img_upload_path)) {
                             chmod($img_upload_path, 0755);
@@ -44,79 +44,41 @@ if (isset($_SESSION['user_email'])) {
                             $query->bindParam("image_name", $new_img_name, PDO::PARAM_STR);
                             $result = $query->execute();
                             if ($result) {
-                                $imgName = $_POST['old_img'];
-                                $path = "admin_img-uploads/" . $imgName;
-                                $remove = unlink($path);
-                                if ($imgName!=""){
-                                    if ($remove == false) {
-                                        $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
-                                    } else {
-                                        $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
-                                    }
-                                }
-                                $_SESSION['item-added'] = "Prvok bol úspešne pridaný.";
-                                header("Location:admin_e-shop.php");
+                                $old_img = $_POST['old_img'];
+                                unlinkOldImg('/admin/admin_img-uploads/',$old_img, 'remove-img');
+                                $_SESSION['item-edited'] = "Prvok bol úspešne pridaný.";
+                                header("Location:admin_e-shop");
                                 die();
                             } else {
-                                $_SESSION['item-added'] = "Prvok nebol pridaný!";
-                                header("Location:admin_e-shop.php");
+                                $_SESSION['item-edited'] = "Prvok nebol upravený!";
+                                header("Location:admin_e-shop");
                                 die();
                             }
-
                         } else {
                             $_SESSION['img-upload'] = "Nastala chyba pri nahrávaní súboru, skúste to znova!";
-                            header("Location:admin_add-item.php");
+                            header("Location:admin_edit-item?id={$id}");
                             die();
                         }
                     } else {
                         $_SESSION['img-upload'] = "Nemôžete nahrať tento typ súboru!";
-                        header("Location:admin_add-item.php");
+                        header("Location:admin_edit-item?id={$id}");
                         die();
                     }
                 }
-            } else if ($img_size == 0) {
-                /** @var str $conn */
-                $query = $conn->prepare("UPDATE tbl_item SET 
-                    title=:title, description=:description, price=:price, image_name=:image_name WHERE id=:id;");
-                $query->bindParam("id", $id, PDO::PARAM_INT);
-                $query->bindParam("title", $title, PDO::PARAM_STR);
-                $query->bindParam("description", $description, PDO::PARAM_STR);
-                $query->bindParam("price", $price, PDO::PARAM_STR);
-                $query->bindParam("image_name", $img_name, PDO::PARAM_STR);
-                $result = $query->execute();
-                if ($result) {
-                    $imgName = $_POST['old_img'];
-                    $path = "admin_img-uploads/" . $imgName;
-                    $remove = unlink($path);
-                    if ($imgName!=""){
-                        if ($remove == false) {
-                            $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
-                        } else {
-                            $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
-                        }
-                    }
 
-                    $_SESSION['item-added'] = "Prvok bol úspešne zmenený.";
-                    header("Location:admin_e-shop.php");
-                    die();
-                } else {
-                    $_SESSION['item-added'] = "Prvok nebol zmenený!";
-                    header("Location:admin_e-shop.php");
-                    die();
-                }
             }else {
-                $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
-                header("Location:admin_add-item.php");
+                $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka!";
+                header("Location:admin_edit-item?id={$id}");
                 die();
             }
         }
     } else {
-        $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka (menej ako 1mb)!";
-        header("Location:admin_add-item.php");
+        $_SESSION['img-upload'] = "Nastala chyba, skúste skontrolovať veľkosť obrázka!";
+        header("Location:admin_edit-item?id={$id}");
         die();
     }
 } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

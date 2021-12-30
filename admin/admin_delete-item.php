@@ -10,24 +10,21 @@ if (isset($_SESSION['user_email'])) {
 
         if ($tempQuery->rowCount()>0){
             while($row = $tempQuery->fetch()) {
-                $imgName = $row['image_name'];
-                if ($imgName!=""){
-                    $path = "admin_img-uploads/" . $imgName;
-
+                $old_img = $row['image_name'];
+                if ($old_img!=""){
                     /** @var str $conn */
                     $query = $conn->prepare("DELETE FROM tbl_item WHERE id=?");
                     $result = $query->execute([$id]);
                     if ($result) {
-                        $remove = unlink($path);
-                        if ($remove == false) {
-                            $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
-                            header("Location:admin_e-shop.php");
-                            die();
-                        } else {
-                            $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
-                            header("Location:admin_e-shop.php");
-                            die();
-                        }
+                        unlinkOldImg('/admin/admin_img-uploads/',$old_img, 'remove-img');
+                        $_SESSION['item-deleted'] = "Produkt bol úspešne vymazaný.";
+                        header("Location:admin_e-shop");
+                        die();
+                    }
+                    else{
+                        $_SESSION['item-deleted'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
+                        header("Location:admin_e-shop");
+                        die();
                     }
                 }
                 else{
@@ -35,26 +32,26 @@ if (isset($_SESSION['user_email'])) {
                     $query3 = $conn->prepare("DELETE FROM tbl_item WHERE id=?");
                     $result3 = $query3->execute([$id]);
                     if ($result3){
-                        $_SESSION['item-edited'] = "Produkt bol úspešne vymazaný.";
-                        header('Location: admin_e-shop.php');
+                        $_SESSION['item-deleted'] = "Produkt bol úspešne vymazaný.";
+                        header('Location: admin_e-shop');
                         die();
                     }
                     else{
-                        $_SESSION['item-edited'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
-                        header('Location: admin_e-shop.php');
+                        $_SESSION['item-deleted'] = "Nepodarilo sa vymazať produkt, skúste to znova!";
+                        header('Location: admin_e-shop');
                         die();
                     }
                 }
             }
         }
     } else {
-        header('Location: admin_e-shop.php');
+        header('Location: admin_e-shop');
         die();
     }
     ?>
 
 <?php } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

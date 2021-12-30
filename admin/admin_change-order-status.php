@@ -22,13 +22,13 @@ if (isset($_SESSION['user_email'])) {
         $result = $query->execute();
 
         if ($result){
-            $_SESSION['change_of_status_success'] = "<div>Zmena bola úspešná.</div>";
-           header("Location:admin_manage-orders.php");
+            $_SESSION['change_of_status_success'] = "Zmena bola úspešná.";
+           header("Location:admin_manage-orders");
            die();
         }
         else{
-            $_SESSION['change_of_status_failed'] = "<div>Zmena bola neúspešná!</div>";
-            header("Location:admin_manage-orders.php");
+            $_SESSION['change_of_status_failed'] = "Zmena bola neúspešná!";
+            header("Location:admin_manage-orders");
             die();
         }
     }
@@ -36,7 +36,7 @@ if (isset($_SESSION['user_email'])) {
 
     </div>
 <?php } else {
-    header('Location: ../login.php?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

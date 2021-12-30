@@ -30,7 +30,16 @@ html{
     color: white;
   }
 }
+.session-display-admin {
+  display: none;
+  margin: 20px 0px;
+  background-color: #fb8500;
+  color: black;
+  padding: 20px 20px;
+  width: 50%;
+}
 body {
+
   a{
     color: $textColor;
     text-decoration: none;

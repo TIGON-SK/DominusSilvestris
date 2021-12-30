@@ -1,23 +1,19 @@
 <?php include_once "_admin-partials/admin_header.php";
 //status: objednane, naceste, dorucene, vymazat
 if (isset($_SESSION['user_email'])) { ?>
+        <section class="mngOrder">
     <div>
         <div>
-            <div>
-                <p>
-                    <?php if (isset($_SESSION['change_of_status_failed'])) {
+            <div class="session-display-admin">
+                <p class="session-message-admin"><?php
+                    if (isset($_SESSION['change_of_status_failed'])) {
                         echo $_SESSION['change_of_status_failed'];
                         unset($_SESSION['change_of_status_failed']);
                     }
-                    ?>
-                </p>
-                <p>
-                    <?php
                     if (isset($_SESSION['change_of_status_success'])) {
                         echo $_SESSION['change_of_status_success'];
                         unset($_SESSION['change_of_status_success']);
-                    } ?>
-                </p>
+                    } ?></p>
             </div>
             <div class="mng-order-explanations">
                 <p class="mng-order-explanation">Vysvetlivky:</p>
@@ -68,39 +64,18 @@ if (isset($_SESSION['user_email'])) { ?>
                         <th class="mng-order-table-content"><?php echo $order['customer_email']; ?></th>
                         <th class="mng-order-table-content"><?php echo $order['customer_phone']; ?></th>
                         <th class="mng-order-table-content"><?php echo $order['customer_address']; ?></th>
-                        <form action="admin_change-order-status.php" method="POST">
+                        <form action="admin_change-order-status" method="POST">
                             <th class="mng-order-table-content">
-                                <i class="bi bi-bag-check">&nbsp;
-                                    <input type="radio" name="orderRadio" value="objednané"
-                                        <?php if ($order['status'] == "objednané") {
-                                            echo "checked";
-                                        } else {
-                                            echo "";
-                                        } ?>></i><br>
 
-                                <i class="bi bi-truck">&nbsp;
-                                    <input type="radio" name="orderRadio" value="na ceste"
-                                        <?php if ($order['status'] == "na ceste") {
-                                            echo "checked";
-                                        } else {
-                                            echo "";
-                                        } ?>></i><br>
+                                <?php manageOrderCheckbox('bi bi-bag-check',$order['status'],"objednané"); ?>
+                                <br>
+                                <?php manageOrderCheckbox('bi bi-truck',$order['status'],"na ceste"); ?>
+                                <br>
+                                <?php manageOrderCheckbox('bi bi-check-circle',$order['status'],"doručené"); ?>
+                                <br>
+                                <?php manageOrderCheckbox('bi bi-trash',$order['status'],"zrušené"); ?>
+                                <br>
 
-                                <i class="bi bi-check-circle">&nbsp;
-                                    <input type="radio" name="orderRadio" value="doručené"
-                                        <?php if ($order['status'] == "doručené") {
-                                            echo "checked";
-                                        } else {
-                                            echo "";
-                                        } ?>></i><br>
-
-                                <i class="bi bi-trash">&nbsp;
-                                    <input type="radio" name="orderRadio" value="zrušené"
-                                        <?php if ($order['status'] == "zrušené") {
-                                            echo "checked";
-                                        } else {
-                                            echo "";
-                                        } ?>></i><br>
                                 <input type="hidden" name="id" value="<?php echo($order['id']); ?>">
                                 <input type="hidden" name="status" value="<?php echo($order['status']); ?>">
                                 <input type="submit" name="submit">
@@ -113,7 +88,7 @@ if (isset($_SESSION['user_email'])) { ?>
             </tbody>
         </table>
     </div>
-
+        </section>
 <?php } else {
     header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
     die();

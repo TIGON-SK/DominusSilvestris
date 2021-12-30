@@ -1,4 +1,5 @@
-<?php include_once "../_inc/config.php";
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/_inc/config.php";
+
  if (isset($_SESSION['user_email'])) { ?>
 <!DOCTYPE html>
 <html lang="en">

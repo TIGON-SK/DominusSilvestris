@@ -29,8 +29,8 @@ $(function(){
         window.onload = function () {
             let sessionMessageDiv = document.querySelector('.order-state-div');
             let sessionMessage = document.querySelector('.order-state-message');
-            let sessionMessageDivAdmin = document.querySelector('.session-display-admin-eshop');
-            let sessionMessageAdmin = document.querySelector('.session-message-admin-eshop');
+            let sessionMessageDivAdmin = document.querySelector('.session-display-admin');
+            let sessionMessageAdmin = document.querySelector('.session-message-admin');
             if (sessionMessageDiv && sessionMessage){
                 sessionHandle(sessionMessageDiv,sessionMessage);
             }else{
@@ -40,14 +40,35 @@ $(function(){
     }
     if(sectionOnPage.is('.adminAbout')) {
         window.onload = function () {
-            console.log(`About`);
-        let sessionMessageDiv = document.querySelector('.session-display-admin-about');
-        let sessionMessage = document.querySelector('.session-message-admin-about');
-        console.log(sessionMessageDiv);
-            console.log(sessionMessage);
+        let sessionMessageDiv = document.querySelector('.session-display-admin');
+        let sessionMessage = document.querySelector('.session-message-admin');
         if (sessionMessageDiv && sessionMessage) {
             sessionHandle(sessionMessageDiv, sessionMessage);
         }}
+    }
+    if(sectionOnPage.is('.editItem')) {
+        window.onload = function () {
+            let sessionMessageDiv = document.querySelector('.session-display-admin');
+            let sessionMessage = document.querySelector('.session-message-admin');
+            if (sessionMessageDiv && sessionMessage) {
+                sessionHandle(sessionMessageDiv, sessionMessage);
+            }}
+    }
+    if(sectionOnPage.is('.addItem')) {
+        window.onload = function () {
+            let sessionMessageDiv = document.querySelector('.session-display-admin');
+            let sessionMessage = document.querySelector('.session-message-admin');
+            if (sessionMessageDiv && sessionMessage) {
+                sessionHandle(sessionMessageDiv, sessionMessage);
+            }}
+    }
+    if(sectionOnPage.is('.mngOrder')) {
+        window.onload = function () {
+            let sessionMessageDiv = document.querySelector('.session-display-admin');
+            let sessionMessage = document.querySelector('.session-message-admin');
+            if (sessionMessageDiv && sessionMessage) {
+                sessionHandle(sessionMessageDiv, sessionMessage);
+            }}
     }
 
     function sessionHandle(sessionMessageDiv,sessionMessage){

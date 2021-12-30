@@ -1,4 +1,4 @@
-<?php include_once "./_inc/config.php"; ?>
+<?php include_once "_inc/config.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
