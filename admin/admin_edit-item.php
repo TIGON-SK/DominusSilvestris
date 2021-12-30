@@ -4,7 +4,7 @@
     <div class="session-display-admin">
     <p class="session-message-admin"><?php
         if (isset($_SESSION['img-upload'])) {
-            echo $_SESSION['img-upload'];
+            out($_SESSION['img-upload']);
             unset($_SESSION['img-upload']);
         } ?></p>
     </div>
@@ -24,25 +24,26 @@ if (isset($_SESSION['user_email'])) {
                     <div class="input-field-edit-item">
                         <label class="label-edit-item" for="title">Názov: </label>
                         <input class="input-edit-item" type="text" name="title" maxlength="150" required placeholder="nazov..."
-                               value="<?php echo $itemInfo['title']; ?>">
+                               value="<?php out($itemInfo['title']); ?>">
                     </div>
                     <div class="input-field-edit-item">
                         <label class="label-edit-item" for="description">Popis: </label>
                         <textarea class="textarea-edit-item" type="text" name="description" maxlength="300" placeholder="popis..."
-                                  cols="30" rows="5"><?php echo $itemInfo['description']; ?></textarea>
+                                  cols="30" rows="5"><?php out($itemInfo['description']); ?></textarea>
                     </div>
                     <div class="input-field-edit-item">
                         <label class="label-edit-item" for="price">Cena: </label>
                         <input class="input-edit-item" type="number" step="any" pattern="\d*" maxlength="8" name="price"
                                required
-                               placeholder="cena..." value="<?php echo $itemInfo['price']; ?>">
+                               placeholder="cena..." value="<?php out($itemInfo['price']); ?>">
                     </div>
                     <div class="input-field-edit-item">
                         <label class="label-edit-item" for="item-img">Obrázok: </label>
-                        <input class="input-edit-item" type="file" name="item-img" maxlength="200" value="<?php echo $itemInfo['image_name']; ?>">
+                        <input class="input-edit-item" type="file" name="item-img" maxlength="200"
+                               value="<?php out($itemInfo['image_name']); ?>">
                     </div>
-                    <input type="hidden" name="id" value="<?php echo $itemInfo['id']; ?>">
-                    <input type="hidden" name="old_img" value="<?php echo $itemInfo['image_name']; ?>">
+                    <input type="hidden" name="id" value="<?php out($itemInfo['id']); ?>">
+                    <input type="hidden" name="old_img" value="<?php out($itemInfo['image_name']); ?>">
                     <div class="input-field-edit-item">
                         <input class="button-edit-item" type="submit"
                                name="btn-edit" value="Zmeniť">
@@ -56,7 +57,7 @@ if (isset($_SESSION['user_email'])) {
     ?>
     </section>
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

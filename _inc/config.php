@@ -2,7 +2,7 @@
 //CONFIG FILE
 
 //Start Session
-session_start();
+//session_start();
 
 //php errors
 ini_set('display_errors', 1);
@@ -22,7 +22,6 @@ try {
         DB_USERNAME, DB_PASSWORD);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }catch(PDOException $e){
-    echo "Connection failed : ". $e->getMessage();
+    out( "Connection failed : ". $e->getMessage());
 }
 include_once "functions.php";
-?>

@@ -1,14 +1,14 @@
 <?php
 require_once("{$_SERVER['DOCUMENT_ROOT']}/router.php");
 
-get('/', 'index.php');
-get('/about', 'about.php');
-get('/e-shop', 'e-shop.php');
-get('/login', 'login.php');
-get('/logout', 'logout.php');
-post('/auth', 'auth.php');
-get('/order-item', 'order-item.php');
-post('/make-order', 'make-order.php');
+get('/', 'public/index.php');
+get('/about', 'public/about.php');
+get('/e-shop', 'public/e-shop.php');
+get('/login', 'public/login.php');
+get('/logout', 'public/logout.php');
+post('/auth', 'public/auth.php');
+get('/order-item', 'public/order-item.php');
+post('/make-order', 'public/make-order.php');
 
 get('/admin/admin_index', 'admin/admin_index.php');
 get('/admin/admin_about', 'admin/admin_about.php');

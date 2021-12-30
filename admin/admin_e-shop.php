@@ -10,22 +10,22 @@ if (isset($_SESSION['user_email'])) { ?>
             <div class="session-display-admin">
                 <p class="session-message-admin"><?php
                     if (isset($_SESSION['remove-img'])) {
-                        echo $_SESSION['remove-img'];
+                        out($_SESSION['remove-img']);
                         unset($_SESSION['remove-img']);
                     }
 
                     if (isset($_SESSION['item-added'])) {
-                        echo $_SESSION['item-added'];
+                        out($_SESSION['item-added']);
                         unset($_SESSION['item-added']);
                     }
 
                     if (isset($_SESSION['item-edited'])) {
-                        echo $_SESSION['item-edited'];
+                        out($_SESSION['item-edited']);
                         unset($_SESSION['item-edited']);
                     }
 
                     if (isset($_SESSION['item-deleted'])) {
-                        echo $_SESSION['item-deleted'];
+                        out($_SESSION['item-deleted']);
                         unset($_SESSION['item-deleted']);
                     }
                     ?></p>
@@ -45,19 +45,19 @@ if (isset($_SESSION['user_email'])) { ?>
                     ?>
                     <div class="item-admin-eshop">
                         <div class="img-admin-eshop-wrapper">
-                            <img class="img-admin-eshop" src="admin_img-uploads/<?php echo $row['image_name']; ?>"
+                            <img class="img-admin-eshop" src="admin_img-uploads/<?php out($row['image_name']); ?>"
                                  alt="obrazok produktu">
                         </div>
                         <div class="info-admin-eshop">
-                            <h3 class="title-admin-eshop"><?php echo $row['title']; ?></h3>
-                            <p class="description-admin-eshop"><?php echo $row['description']; ?></p>
-                            <h4 class="price-admin-eshop">Cena: <?php echo $row['price']; ?>$</h4>
+                            <h3 class="title-admin-eshop"><?php out($row['title']); ?></h3>
+                            <p class="description-admin-eshop"><?php out($row['description']); ?></p>
+                            <h4 class="price-admin-eshop">Cena: <?php out($row['price']); ?>$</h4>
                             <div class="options-admin-eshop">
-                                <a class="edit" href="admin_edit-item?id=<?php echo($idOfItem); ?>">
+                                <a class="edit" href="admin_edit-item?id=<?php out($idOfItem); ?>">
                                     <i class="fas fa-edit"></i>
                                     Edit
                                 </a>
-                                <a class="delete" href="admin_delete-item?id=<?php echo($idOfItem); ?>">
+                                <a class="delete" href="admin_delete-item?id=<?php out($idOfItem); ?>">
                                     <i class="fas fa-trash-alt"></i>
                                     Delete
                                 </a>
@@ -79,7 +79,7 @@ if (isset($_SESSION['user_email'])) { ?>
     </section>
 
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

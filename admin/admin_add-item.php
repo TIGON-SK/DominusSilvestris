@@ -5,7 +5,7 @@ if (isset($_SESSION['user_email'])) { ?>
         <div class="session-display-admin">
         <p class="session-message-admin"><?php
             if (isset($_SESSION['img-upload'])) {
-                echo $_SESSION['img-upload'];
+                out($_SESSION['img-upload']);
                 unset($_SESSION['img-upload']);
             } ?></p>
         </div>
@@ -36,6 +36,6 @@ if (isset($_SESSION['user_email'])) { ?>
 
         </section>
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

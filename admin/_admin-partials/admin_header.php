@@ -57,6 +57,6 @@
     </header>
 <main id="main-admin" class="slideUp-admin">
 <?php } else {
-    header('Location: ../login?error=Falied to log in');
+    header('Location: ../../public/login?error=Falied to log in');
     die();
 } ?>

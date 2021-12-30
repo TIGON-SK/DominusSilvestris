@@ -1,8 +1,5 @@
-<?php include_once "_admin-partials/admin_header.php";
-if (isset($_SESSION['user_email'])) { 
-    ?>
-    <div>
-        <?php
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/_inc/config.php";
+if (isset($_SESSION['user_email'])) {
     if (isset($_POST['submit'])){
         $status_of_order = $_POST['orderRadio'];
         $id_of_order = $_POST['id'];
@@ -32,11 +29,7 @@ if (isset($_SESSION['user_email'])) {
             die();
         }
     }
-    ?>
-
-    </div>
-<?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+     } else {
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
-} ?>
-<?php include_once "_admin-partials/admin_footer.php"; ?>
+} include_once "_admin-partials/admin_footer.php";

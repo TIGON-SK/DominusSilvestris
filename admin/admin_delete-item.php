@@ -1,4 +1,4 @@
-<?php include_once "_admin-partials/admin_header.php";
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/_inc/config.php";
 if (isset($_SESSION['user_email'])) {
 
     if (isset($_GET['id'])) {
@@ -51,7 +51,6 @@ if (isset($_SESSION['user_email'])) {
     ?>
 
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
-} ?>
-<?php include_once "_admin-partials/admin_footer.php"; ?>
+} include_once "_admin-partials/admin_footer.php";

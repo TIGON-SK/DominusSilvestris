@@ -43,7 +43,7 @@ if (isset($_SESSION['user_email'])) { ?>
         </div>
     </section>
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

@@ -1,4 +1,4 @@
-<?php include_once "_admin-partials/admin_header.php";
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/_inc/config.php";
 if (isset($_SESSION['user_email'])) {
     if (isset($_POST['btn-insert-into-db'])) {
         if (isset($_FILES['item-img'])) {
@@ -29,7 +29,6 @@ if (isset($_SESSION['user_email'])) {
                     if (in_array($img_ex, $allowed_exs)) {
                         $new_img_name = uniqid("img-", true) . "." . $img_ex;
                         $img_upload_path = $_SERVER['DOCUMENT_ROOT'].'/admin/admin_img-uploads/' . $new_img_name;
-
                         if (move_uploaded_file($tmp_name, $img_upload_path)) {
                             chmod($img_upload_path, 0755);
                             /** @var str $conn */
@@ -49,7 +48,6 @@ if (isset($_SESSION['user_email'])) {
                                 header("Location:admin_e-shop");
                                 die();
                             }
-
                         } else {
                             $_SESSION['img-upload'] = "Nastala chyba pri nahrávaní súboru, skúste to znova!";
                             header("Location:admin_add-item");
@@ -74,7 +72,6 @@ if (isset($_SESSION['user_email'])) {
         die();
     }
 } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
-} ?>
-<?php include_once "_admin-partials/admin_footer.php"; ?>
+} include_once "_admin-partials/admin_footer.php";

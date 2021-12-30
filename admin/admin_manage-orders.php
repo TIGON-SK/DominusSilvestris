@@ -7,11 +7,11 @@ if (isset($_SESSION['user_email'])) { ?>
             <div class="session-display-admin">
                 <p class="session-message-admin"><?php
                     if (isset($_SESSION['change_of_status_failed'])) {
-                        echo $_SESSION['change_of_status_failed'];
+                        out($_SESSION['change_of_status_failed']);
                         unset($_SESSION['change_of_status_failed']);
                     }
                     if (isset($_SESSION['change_of_status_success'])) {
-                        echo $_SESSION['change_of_status_success'];
+                        out($_SESSION['change_of_status_success']);
                         unset($_SESSION['change_of_status_success']);
                     } ?></p>
             </div>
@@ -53,17 +53,17 @@ if (isset($_SESSION['user_email'])) { ?>
                     $_SESSION['order-id'] = $order['id'];
                     ?>
                     <tr>
-                        <th class="mng-order-table-content"><?php echo $sn++; ?>.</th>
-                        <th class="mng-order-table-content"><?php echo $order['item_name']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['price']; ?>€</th>
-                        <th class="mng-order-table-content"><?php echo $order['qty']; ?></th>
-                        <th class="mng-order-table-content"><?php echo($order['qty'] * $order['price']); ?>€</th>
-                        <th class="mng-order-table-content"><?php echo $order['order_date']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['status']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['customer_name']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['customer_email']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['customer_phone']; ?></th>
-                        <th class="mng-order-table-content"><?php echo $order['customer_address']; ?></th>
+                        <th class="mng-order-table-content"><?php out($sn++); ?>.</th>
+                        <th class="mng-order-table-content"><?php out($order['item_name']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['price']); ?>€</th>
+                        <th class="mng-order-table-content"><?php out($order['qty']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['qty'] * $order['price']); ?>€</th>
+                        <th class="mng-order-table-content"><?php out($order['order_date']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['status']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['customer_name']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['customer_email']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['customer_phone']); ?></th>
+                        <th class="mng-order-table-content"><?php out($order['customer_address']); ?></th>
                         <form action="admin_change-order-status" method="POST">
                             <th class="mng-order-table-content">
 
@@ -76,8 +76,8 @@ if (isset($_SESSION['user_email'])) { ?>
                                 <?php manageOrderCheckbox('bi bi-trash',$order['status'],"zrušené"); ?>
                                 <br>
 
-                                <input type="hidden" name="id" value="<?php echo($order['id']); ?>">
-                                <input type="hidden" name="status" value="<?php echo($order['status']); ?>">
+                                <input type="hidden" name="id" value="<?php out($order['id']); ?>">
+                                <input type="hidden" name="status" value="<?php out($order['status']); ?>">
                                 <input type="submit" name="submit">
                             </th>
 
@@ -90,7 +90,7 @@ if (isset($_SESSION['user_email'])) { ?>
     </div>
         </section>
 <?php } else {
-    header('Location: ../login?error=Nepodarilo sa prihlásiť Vás');
+    header('Location: ../public/login?error=Nepodarilo sa prihlásiť Vás');
     die();
 } ?>
 <?php include_once "_admin-partials/admin_footer.php"; ?>

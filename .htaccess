@@ -1,40 +1,4 @@
-##Turn on URL rewriting
-#RewriteEngine On
-##na serveri iba /
-#RewriteBase /Info/
-## Protect application and system files from being viewed
-#RewriteRule ^(_inc|assets|_partials|Info) - [F,L]
-#
-## Allow any files or directories that exist to be displayed directly
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#
-## Rewrite all other URLs to index.php/
-#RewriteRule .* index.php/$0 [PT,L]
-
-#Options +MultiViews
-#RewriteEngine On
-#
-#RewriteBase /
-#
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#
-#RewriteRule ^([^\.]+)$ $1.php [NC,L]
-#RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
-#RewriteRule ^ /%1 [R=301,NE,L]
-#### Remove extensions
-##RewriteEngine On
-##RewriteCond %{REQUEST_FILENAME} !-f
-##RewriteRule ^([^\.]+)$ $1.php [NC,L]
-##
-#### Redirect from extensions to non-extensions
-##RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
-##RewriteRule ^ /%1 [R=301,NE,L]
-#
-## Dealing with errors
-#ErrorDocument 404 /errors/404.php
-
 RewriteEngine On
+php_value display_errors 1
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
 RewriteRule (.*) routes.php [QSA,L]

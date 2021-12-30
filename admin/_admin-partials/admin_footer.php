@@ -21,6 +21,6 @@
 </body>
 </html>
 <?php } else {
-    header('Location: ../login?error=Falied to log in');
+    header('Location: ../../login?error=Falied to log in');
     die();
 } ?>
