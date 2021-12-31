@@ -18,10 +18,9 @@ if (isset($_SESSION['user_email'])) {
 
             <?php if (isset($_GET['warning'])) {
                 $warningText = $_GET['warning'];
-                out("<div>
-                <strong>VAROVANIE!</strong> ".(htmlspecialchars($warningText))."
-                </div>");
-
+                ?><div><strong>VAROVANIE!</strong><?php
+                out(htmlspecialchars($warningText));
+                ?></div><?php
             } ?>
             <div class="input-field">
                 <input type="email"

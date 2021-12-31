@@ -1,4 +1,5 @@
 RewriteEngine On
-php_value display_errors 1
+#php_value display_errors 1
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
+ErrorDocument 500 /errors/500.php
 RewriteRule (.*) routes.php [QSA,L]

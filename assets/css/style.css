@@ -73,6 +73,13 @@ body footer .font-small {
   font-size: 25px;
 }
 
+.wrapperOf404 {
+  text-align: center;
+}
+.wrapperOf404 .text404 {
+  font-size: 100px;
+}
+
 /*scss*/
 .slideUp {
   margin-top: 30px;
