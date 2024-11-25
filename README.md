@@ -1,0 +1,1 @@
+I created this website for my father, who is a forester, to serve as a platform for representing his expertise and optionally selling products. The goal is to create a professional, user-friendly website that reflects his work and values while enabling future e-commerce functionality if needed.
